@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nick's Jr Burgers &amp; Gyros — Everett, WA | Flame-Grilled Burgers &amp; Gyros</title>
 <meta name="description" content="Nick's Jr Burgers & Gyros in Everett, WA — imaginative flame-grilled burgers, hand-carved gyros & sides, counter-serve with outdoor seating. 4.7 stars across 2,182 Google reviews." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23e23b2e'/%3E%3Ccircle cx='40' cy='45' r='6' fill='%23fff'/%3E%3Ccircle cx='60' cy='45' r='6' fill='%23fff'/%3E%3Crect x='28' y='58' width='44' height='9' rx='4' fill='%23fff'/%3E%3C/svg%3E" type="image/svg+xml" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23b5281d'/%3E%3Ctext x='50' y='60' font-size='46' text-anchor='middle' fill='%23fff' font-family='Brush Script MT, cursive' font-style='italic'%3ENick%27s%3C/text%3E%3Ctext x='62' y='86' font-size='34' text-anchor='middle' fill='%23fff' font-family='Brush Script MT, cursive' font-style='italic'%3EJr.%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;700&family=Pacifico&display=swap" rel="stylesheet" />
 <style>
   :root {
     --char: #211a15;
@@ -40,13 +40,16 @@
   /* ---------- NAV ---------- */
   nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(33,26,21,.08); transition: all .35s ease; }
   nav.scrolled { background: rgba(33,26,21,.96); border-bottom-color: rgba(217,164,65,.25); }
-  nav.scrolled .nav-inner a, nav.scrolled .logo b { color: var(--cream); }
-  nav.scrolled .logo span { color: var(--gold-soft); }
+  nav.scrolled .nav-links a { color: var(--cream); }
+  nav.scrolled .logo .logo-tag { color: var(--gold-soft); }
   .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; }
-  .logo { display: flex; align-items: center; gap: 13px; }
-  .logo .brandmark { width: 48px; height: 48px; flex: none; }
-  .logo b { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--char); letter-spacing: .5px; }
-  .logo span { font-family: var(--script); font-size: 22px; color: var(--gold); font-weight: 500; }
+  .logo { display: flex; align-items: center; gap: 14px; }
+  .logo .logo-tag { font-family: var(--script); font-size: 22px; color: var(--gold); font-weight: 500; }
+  /* Recreated Nick's Jr. red script badge */
+  .nicks-logo { display: inline-flex; flex-direction: column; align-items: flex-start; background: linear-gradient(135deg, #9e1c12 0%, #c62a1c 46%, #7d140c 100%); padding: .34em .58em .44em; border-radius: .22em; line-height: .76; font-family: 'Pacifico', cursive; color: #fff; box-shadow: 0 4px 12px rgba(122,20,12,.35); flex: none; }
+  .nicks-logo .l1 { font-size: 1em; text-shadow: .055em .085em 0 #530c07, 0 .02em 0 #530c07; }
+  .nicks-logo .l2 { font-size: .72em; align-self: flex-end; margin-top: -.06em; text-shadow: .055em .085em 0 #530c07; }
+  .logo .nicks-logo { font-size: 25px; }
   .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
   .nav-links a { position: relative; padding: 6px 0; }
   .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--gold); transition: width .3s ease; }
@@ -278,7 +281,7 @@
     .menu-tabs { gap: 0; }
     .menu-tab { padding: 14px 12px; font-size: 11px; letter-spacing: 1.5px; }
     .hero { min-height: 90vh; }
-    .logo b { font-size: 21px; } .logo span { font-size: 18px; } .logo .brandmark { width: 40px; height: 40px; }
+    .logo .nicks-logo { font-size: 20px; } .logo .logo-tag { font-size: 18px; }
     .rating-score { font-size: 70px; }
   }
 </style>
@@ -295,20 +298,9 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#top" class="logo">
-      <svg class="brandmark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nick's Jr.">
-        <rect x="2" y="2" width="96" height="96" rx="24" fill="#e23b2e"/>
-        <rect x="7.5" y="7.5" width="85" height="85" rx="19" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
-        <path d="M22 46 C 24 27 76 27 78 46 Z" fill="#edc575"/>
-        <ellipse cx="39" cy="39" rx="2" ry="1.2" fill="#fff6e2"/><ellipse cx="61" cy="39" rx="2" ry="1.2" fill="#fff6e2"/><ellipse cx="50" cy="34" rx="2" ry="1.2" fill="#fff6e2"/>
-        <circle cx="43" cy="42" r="4.6" fill="#fffaf0"/><circle cx="57" cy="42" r="4.6" fill="#fffaf0"/>
-        <circle cx="43.9" cy="42.7" r="2.1" fill="#3a2a1e"/><circle cx="57.9" cy="42.7" r="2.1" fill="#3a2a1e"/>
-        <path d="M21 46 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 L79 52 L21 52 Z" fill="#7cb342"/>
-        <path d="M22 51 L78 51 L78 55 q-7 5 -14 1 q-7 5 -14 1 q-7 5 -14 1 q-7 5 -14 1 Z" fill="#f6b73c"/>
-        <rect x="22" y="55" width="56" height="9" rx="4.5" fill="#6e3b22"/>
-        <path d="M25 64 L75 64 C 79 64 79 71 74 72 C 60 76 40 76 26 72 C 21 71 21 64 25 64 Z" fill="#edc575"/>
-      </svg>
-      <b>Nick's Jr.</b> <span>Burgers &amp; Gyros</span>
+    <a href="#top" class="logo" aria-label="Nick's Jr. Burgers &amp; Gyros home">
+      <span class="nicks-logo" role="img" aria-label="Nick's Jr."><span class="l1">Nick's</span><span class="l2">Jr.</span></span>
+      <span class="logo-tag">Burgers &amp; Gyros</span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#story">Story</a></li>
@@ -638,7 +630,7 @@
 <footer>
   <div class="foot-grid">
     <div class="foot">
-      <div class="foot-logo">Nick's Jr. <span>Burgers &amp; Gyros</span></div>
+      <div class="foot-logo"><span class="nicks-logo" style="font-size:32px;" role="img" aria-label="Nick's Jr."><span class="l1">Nick's</span><span class="l2">Jr.</span></span><br/><span style="font-family:var(--script);color:var(--gold);font-size:24px;display:inline-block;margin-top:12px;">Burgers &amp; Gyros</span></div>
       <p>5821 Evergreen Way<br/>Everett, WA 98203</p>
       <p>(425) 347-6037</p>
       <p style="margin-top:18px;font-family:var(--script);font-size:22px;color:var(--gold-soft);">Imaginative burgers &amp; gyros.</p>
