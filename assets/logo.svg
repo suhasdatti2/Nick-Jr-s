@@ -7,10 +7,12 @@
     </linearGradient>
   </defs>
   <rect width="320" height="200" rx="14" fill="url(#bg)"/>
-  <g font-family="'Pacifico', 'Brush Script MT', cursive" fill="#ffffff" font-style="italic">
-    <text x="158" y="98" font-size="92" text-anchor="middle" fill="#530c07" transform="translate(4,6)">Nick's</text>
-    <text x="158" y="98" font-size="92" text-anchor="middle">Nick's</text>
-    <text x="206" y="168" font-size="64" text-anchor="middle" fill="#530c07" transform="translate(4,6)">Jr.</text>
-    <text x="206" y="168" font-size="64" text-anchor="middle">Jr.</text>
+  <g font-family="'Pacifico', 'Brush Script MT', cursive" font-style="italic" text-anchor="middle">
+    <!-- 3D extrude -->
+    <text x="158" y="98" font-size="92" fill="#530c07" transform="translate(6,8)">Nick's</text>
+    <text x="206" y="170" font-size="64" fill="#530c07" transform="translate(6,8)">Jr.</text>
+    <!-- white face with dark outline -->
+    <text x="158" y="98" font-size="92" fill="#ffffff" stroke="#4a0a06" stroke-width="2.4" paint-order="stroke">Nick's</text>
+    <text x="206" y="170" font-size="64" fill="#ffffff" stroke="#4a0a06" stroke-width="2.4" paint-order="stroke">Jr.</text>
   </g>
 </svg>
