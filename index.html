@@ -1,307 +1,887 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nick Jr's Burgers &amp; Gyros — Flame-Grilled Burgers &amp; Authentic Greek Gyros</title>
-  <meta name="description" content="Nick Jr's Burgers & Gyros — hand-pressed flame-grilled smashburgers and authentic, spit-roasted Greek gyros, crafted fresh daily since 1998. Reserve a table or order catering." />
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nick Jr's Burgers &amp; Gyros — Flame-Grilled Burgers &amp; Authentic Greek Gyros</title>
+<meta name="description" content="Nick Jr's Burgers & Gyros — hand-pressed flame-grilled smashburgers, spit-roasted Greek gyros, hand-cut fries, and made-from-scratch sauces. A neighborhood tradition since 1998." />
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --char: #211a15;
+    --char-deep: #150f0b;
+    --gold: #d9a441;
+    --gold-soft: #e8c578;
+    --cream: #f7f1e6;
+    --cream-warm: #efe6d3;
+    --ink: #1f1a17;
+    --muted: #756b60;
+    --ember: #d4452a;
+    --flame: #a8331d;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    --script: 'Caveat', cursive;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; transition: color .3s; }
+
+  /* ---------- TOP STRIP ---------- */
+  .top-strip {
+    background: var(--char-deep);
+    color: var(--gold-soft);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px 16px;
+    font-weight: 500;
+  }
+  .top-strip span { margin: 0 14px; opacity: .9; }
+  .top-strip a:hover { color: #fff; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(33,26,21,.08);
+    transition: all .35s ease;
+  }
+  nav.scrolled {
+    background: rgba(33,26,21,.96);
+    border-bottom-color: rgba(217,164,65,.25);
+  }
+  nav.scrolled .nav-inner a,
+  nav.scrolled .logo { color: var(--cream); }
+  nav.scrolled .logo span { color: var(--gold-soft); }
+
+  .nav-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 26px; font-weight: 700;
+    color: var(--char); letter-spacing: .5px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo img { width: 46px; height: 46px; }
+  .logo b { font-weight: 700; }
+  .logo span {
+    font-family: var(--script);
+    font-size: 22px; color: var(--gold);
+    font-weight: 500;
+  }
+  .nav-links {
+    display: flex; gap: 32px; align-items: center;
+    list-style: none;
+    font-size: 13px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 1.5px;
+  }
+  .nav-links a { position: relative; padding: 6px 0; }
+  .nav-links a::after {
+    content: ''; position: absolute; left: 0; bottom: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width .3s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .btn-reserve {
+    background: var(--gold); color: var(--char) !important;
+    padding: 10px 22px !important; border-radius: 2px;
+    font-weight: 600 !important;
+  }
+  .btn-reserve:hover { background: var(--gold-soft); }
+  .btn-reserve::after { display: none !important; }
+
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 22px; color: var(--char); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background:
+      radial-gradient(ellipse at top, rgba(33,26,21,.5), rgba(21,15,11,.88)),
+      url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1920&q=80') center/cover;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, var(--cream) 100%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 1100px; padding: 0 24px; }
+  .hero-eyebrow {
+    font-family: var(--script);
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--gold-soft);
+    margin-bottom: 12px;
+    animation: fadeUp 1s ease .2s both;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 8vw, 110px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    animation: fadeUp 1s ease .4s both;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-soft); font-weight: 400; }
+
+  .rotator {
+    display: inline-block; position: relative;
+    color: var(--gold-soft); font-style: italic; font-weight: 400;
+    min-height: 1.05em; vertical-align: bottom;
+  }
+  .rotator .word {
+    position: absolute; left: 50%; top: 0;
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0; white-space: nowrap;
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .rotator .word.active { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .rotator-spacer { visibility: hidden; white-space: nowrap; }
+
+  .hero-sub {
+    font-size: clamp(15px, 1.5vw, 18px);
+    font-weight: 300; letter-spacing: 3px; text-transform: uppercase;
+    max-width: 720px; margin: 0 auto 40px; opacity: .9;
+    animation: fadeUp 1s ease .6s both;
+  }
+  .hero-cta {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 1s ease .8s both;
+  }
+  .btn {
+    display: inline-block; padding: 16px 36px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    border: 1px solid var(--gold);
+    background: transparent; color: #fff; cursor: pointer;
+    transition: all .35s ease; position: relative; overflow: hidden;
+  }
+  .btn:hover { background: var(--gold); color: var(--char); transform: translateY(-2px); }
+  .btn.primary { background: var(--gold); color: var(--char); }
+  .btn.primary:hover { background: #fff; border-color: #fff; }
+
+  .scroll-hint {
+    position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%);
+    color: var(--gold-soft); font-size: 11px; letter-spacing: 4px;
+    text-transform: uppercase; opacity: .8;
+    animation: bob 2.5s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%,100% { transform: translateX(-50%) translateY(0); opacity: .8; }
+    50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ---------- SECTION BASE ---------- */
+  section { padding: 110px 24px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .eyebrow { font-family: var(--script); font-size: 28px; color: var(--gold); margin-bottom: 8px; }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 500; line-height: 1.05;
+    color: var(--char); margin-bottom: 24px; letter-spacing: -.5px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-intro {
+    max-width: 720px; font-size: 17px; color: var(--muted);
+    line-height: 1.8; margin-bottom: 60px;
+  }
+  .section-head-center { text-align: center; }
+  .section-head-center .section-intro { margin-left: auto; margin-right: auto; }
+
+  /* ---------- STORY ---------- */
+  .story { background: var(--cream); position: relative; }
+  .story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
+  .story-text p { font-size: 17px; color: #3a3128; margin-bottom: 18px; line-height: 1.85; }
+  .story-text .lead {
+    font-family: var(--serif); font-size: 26px; font-style: italic;
+    color: var(--char); margin-bottom: 26px; line-height: 1.4;
+  }
+  .story-image {
+    position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: 2px;
+    box-shadow: 0 30px 60px -20px rgba(33,26,21,.4);
+  }
+  .story-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 8s ease; }
+  .story-image:hover img { transform: scale(1.08); }
+  .story-image::after {
+    content: '25+'; position: absolute; bottom: -30px; right: -20px;
+    font-family: var(--serif); font-size: 200px; font-weight: 600;
+    color: var(--gold); opacity: .9; line-height: 1;
+  }
+  .story-badge {
+    position: absolute; top: 24px; left: 24px;
+    background: var(--char); color: var(--gold-soft);
+    padding: 10px 18px; font-size: 11px;
+    letter-spacing: 3px; text-transform: uppercase;
+    border-left: 2px solid var(--gold);
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    background: var(--char); color: var(--gold-soft);
+    overflow: hidden; padding: 22px 0;
+    border-top: 1px solid rgba(217,164,65,.15);
+    border-bottom: 1px solid rgba(217,164,65,.15);
+  }
+  .marquee-track {
+    display: flex; gap: 60px; white-space: nowrap;
+    animation: scroll 40s linear infinite;
+    font-family: var(--serif); font-size: 28px; font-style: italic;
+  }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 60px; }
+  .marquee-track .dot { color: var(--ember); font-size: 18px; }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---------- VALUES ---------- */
+  .values { background: linear-gradient(180deg, var(--cream) 0%, var(--cream-warm) 100%); }
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
+  .value-card {
+    background: #fff; padding: 40px 28px; text-align: center;
+    border-top: 2px solid var(--gold);
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .value-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -15px rgba(33,26,21,.2); }
+  .value-icon { font-size: 38px; margin-bottom: 18px; }
+  .value-card h3 { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--char); margin-bottom: 12px; }
+  .value-card p { color: var(--muted); font-size: 15px; }
+
+  /* ---------- MENUS ---------- */
+  .menus { background: #fff; position: relative; }
+  .menu-tabs {
+    display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 60px; border-bottom: 1px solid rgba(33,26,21,.08);
+  }
+  .menu-tab {
+    background: none; border: none; font-family: var(--sans);
+    font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--muted); padding: 18px 24px; cursor: pointer; position: relative;
+    transition: color .3s ease;
+  }
+  .menu-tab::after {
+    content: ''; position: absolute; left: 50%; bottom: -1px;
+    width: 0; height: 2px; background: var(--gold);
+    transition: all .3s ease; transform: translateX(-50%);
+  }
+  .menu-tab:hover { color: var(--char); }
+  .menu-tab.active { color: var(--char); }
+  .menu-tab.active::after { width: 60%; }
+
+  .menu-panel { display: none; animation: fadeIn .6s ease; }
+  .menu-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .menu-section { margin-bottom: 60px; }
+  .menu-section-title {
+    font-family: var(--serif); font-size: 32px; font-weight: 500;
+    color: var(--char); margin-bottom: 8px;
+    display: flex; align-items: baseline; gap: 18px;
+  }
+  .menu-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+  .menu-section-sub { color: var(--muted); font-style: italic; margin-bottom: 30px; font-family: var(--serif); font-size: 17px; }
+  .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 60px; }
+  .menu-item { padding: 18px 0; border-bottom: 1px dashed rgba(33,26,21,.12); }
+  .menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 6px; }
+  .menu-item-name { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--char); line-height: 1.3; }
+  .menu-item-name .tag {
+    font-family: var(--sans); font-size: 10px; font-weight: 700;
+    background: var(--gold); color: var(--char); padding: 2px 7px; margin-left: 8px;
+    letter-spacing: 1px; vertical-align: middle; border-radius: 2px;
+  }
+  .menu-item-name .tag.spicy { background: var(--ember); color: #fff; }
+  .menu-item-name .tag.veg { background: #6ba368; color: #fff; }
+  .menu-item-price { font-family: var(--serif); font-size: 19px; font-weight: 500; color: var(--gold); white-space: nowrap; letter-spacing: 1px; }
+  .menu-item-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ---------- POPULAR DISHES ---------- */
+  .popular { background: var(--cream-warm); overflow: hidden; }
+  .dishes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 50px; }
+  .dish { position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; }
+  .dish img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
+  .dish:hover img { transform: scale(1.1); }
+  .dish::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(21,15,11,.92) 100%); z-index: 1;
+  }
+  .dish-info { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; color: #fff; padding: 32px 28px; transform: translateY(40px); transition: transform .5s ease; }
+  .dish:hover .dish-info { transform: translateY(0); }
+  .dish-tag { font-family: var(--script); color: var(--gold-soft); font-size: 22px; display: block; margin-bottom: 4px; }
+  .dish-name { font-family: var(--serif); font-size: 28px; font-weight: 500; line-height: 1.1; margin-bottom: 10px; }
+  .dish-desc { font-size: 14px; opacity: 0; max-height: 0; transition: all .5s ease; color: rgba(255,255,255,.85); }
+  .dish:hover .dish-desc { opacity: 1; max-height: 120px; }
+
+  /* ---------- QUOTE ---------- */
+  .quote {
+    background:
+      linear-gradient(135deg, rgba(21,15,11,.86), rgba(168,51,29,.72)),
+      url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=1920&q=80') center/cover fixed;
+    color: #fff; text-align: center; padding: 140px 24px;
+  }
+  .quote blockquote {
+    font-family: var(--serif); font-size: clamp(24px, 3vw, 38px);
+    font-style: italic; font-weight: 400; line-height: 1.4;
+    max-width: 950px; margin: 0 auto 30px;
+  }
+  .quote blockquote::before { content: '"'; font-size: 80px; color: var(--gold); display: block; line-height: 0; margin-bottom: 30px; }
+  .quote cite { font-family: var(--sans); font-size: 13px; font-style: normal; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-soft); }
+
+  /* ---------- VISIT ---------- */
+  .visit { background: var(--char); color: var(--cream); padding: 110px 24px; }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .visit .section-title { color: #fff; }
+  .visit .section-title em { color: var(--gold-soft); }
+  .visit-info p { color: rgba(247,241,230,.78); margin-bottom: 14px; font-size: 16px; }
+  .hours-card { background: rgba(255,255,255,.04); border: 1px solid rgba(217,164,65,.2); padding: 50px; }
+  .hours-row { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(217,164,65,.12); font-size: 15px; gap: 18px; }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row strong { font-family: var(--serif); font-size: 19px; color: var(--gold-soft); font-weight: 500; }
+  .hours-row span { color: rgba(247,241,230,.8); text-align: right; }
+  .hours-title { font-family: var(--serif); font-size: 28px; color: #fff; margin-bottom: 20px; font-style: italic; }
+  .happy-hour-highlight { background: var(--gold); color: var(--char); padding: 22px 28px; margin-top: 30px; text-align: center; }
+  .happy-hour-highlight strong { font-family: var(--serif); font-size: 24px; display: block; margin-bottom: 4px; }
+  .happy-hour-highlight span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+
+  /* ---------- WAYS / LOCATIONS ---------- */
+  .locations { background: var(--cream); }
+  .loc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 50px; }
+  .loc { padding: 34px 26px; background: #fff; border-bottom: 2px solid transparent; transition: all .35s ease; cursor: pointer; }
+  .loc:hover { border-bottom-color: var(--gold); transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(33,26,21,.18); }
+  .loc.featured { background: var(--char); color: #fff; border-bottom-color: var(--gold); }
+  .loc.featured .loc-city { color: var(--gold-soft); }
+  .loc.featured .loc-detail { color: rgba(247,241,230,.72); }
+  .loc-tag { font-family: var(--script); color: var(--gold); font-size: 20px; display: block; margin-bottom: 6px; }
+  .loc-city { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--char); margin-bottom: 8px; }
+  .loc-detail { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ---------- CTA STRIP ---------- */
+  .cta-strip { background: var(--gold); color: var(--char); text-align: center; padding: 80px 24px; }
+  .cta-strip h2 { font-family: var(--serif); font-size: clamp(34px, 5vw, 56px); font-weight: 500; margin-bottom: 20px; font-style: italic; }
+  .cta-strip p { max-width: 600px; margin: 0 auto 30px; font-size: 17px; }
+  .cta-strip .btn { border-color: var(--char); background: var(--char); color: var(--gold-soft); }
+  .cta-strip .btn:hover { background: transparent; color: var(--char); }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: var(--char-deep); color: rgba(247,241,230,.7); padding: 80px 24px 30px; }
+  .foot-grid {
+    max-width: 1200px; margin: 0 auto; display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 50px;
+    padding-bottom: 50px; border-bottom: 1px solid rgba(217,164,65,.15);
+  }
+  .foot-logo { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--cream); margin-bottom: 16px; }
+  .foot-logo span { font-family: var(--script); color: var(--gold); font-size: 24px; font-weight: 500; }
+  .foot p { font-size: 14px; line-height: 1.8; margin-bottom: 8px; }
+  .foot h4 { font-family: var(--serif); font-size: 18px; color: var(--gold-soft); margin-bottom: 18px; font-weight: 500; }
+  .foot ul { list-style: none; }
+  .foot ul li { margin-bottom: 10px; font-size: 14px; }
+  .foot ul a:hover { color: var(--gold-soft); }
+  .copyright { max-width: 1200px; margin: 30px auto 0; font-size: 12px; color: rgba(247,241,230,.45); text-align: center; letter-spacing: 1px; }
+
+  /* ---------- REVEAL ---------- */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .15s; }
+  .reveal-delay-2 { transition-delay: .3s; }
+  .reveal-delay-3 { transition-delay: .45s; }
+
+  .fade-words .fw { display: inline-block; opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; margin-right: .25em; }
+  .fade-words.in .fw { opacity: 1; transform: translateY(0); }
+  .fade-words.in .fw:nth-child(1) { transition-delay: .1s; }
+  .fade-words.in .fw:nth-child(2) { transition-delay: .25s; }
+  .fade-words.in .fw:nth-child(3) { transition-delay: .4s; }
+  .fade-words.in .fw:nth-child(4) { transition-delay: .55s; }
+  .fade-words.in .fw:nth-child(5) { transition-delay: .7s; }
+  .fade-words.in .fw:nth-child(6) { transition-delay: .85s; }
+  .fade-words.in .fw:nth-child(7) { transition-delay: 1s; }
+  .fade-words.in .fw:nth-child(8) { transition-delay: 1.15s; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; padding: 24px; gap: 18px;
+      border-top: 1px solid rgba(33,26,21,.08);
+    }
+    nav.scrolled .nav-links.open { background: var(--char); }
+    section { padding: 70px 20px; }
+    .story-grid, .visit-grid { grid-template-columns: 1fr; gap: 50px; }
+    .story-image::after { font-size: 120px; }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .menu-grid { grid-template-columns: 1fr; gap: 0; }
+    .dishes-grid { grid-template-columns: 1fr; }
+    .loc-grid { grid-template-columns: repeat(2, 1fr); }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 35px; }
+    .hours-card { padding: 30px 22px; }
+    .top-strip span { display: block; margin: 2px 0; }
+  }
+  @media (max-width: 540px) {
+    .values-grid, .loc-grid, .foot-grid { grid-template-columns: 1fr; }
+    .menu-tabs { gap: 0; }
+    .menu-tab { padding: 14px 12px; font-size: 11px; letter-spacing: 1.5px; }
+    .hero { min-height: 90vh; }
+    .logo { font-size: 22px; }
+    .logo img { width: 40px; height: 40px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- ANNOUNCEMENT -->
-  <div class="topbar">Now taking reservations &amp; catering orders — <a href="#visit">Book your table</a></div>
+<!-- TOP STRIP -->
+<div class="top-strip">
+  <span>742 Grill Street, Riverdale, IL</span>
+  <span>(555) 555-0199</span>
+  <span>Flame-Grilled &middot; Authentic Gyros</span>
+</div>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Nick Jr's Burgers and Gyros home">
-        <img src="assets/logo.svg" alt="Nick Jr's Burgers & Gyros emblem" />
-        <span class="brand-text"><strong>Nick Jr's</strong><span>Burgers &amp; Gyros</span></span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <ul class="nav-links">
-        <li><a href="#story">Our Story</a></li>
-        <li><a href="#signatures">Signatures</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#visit">Visit</a></li>
-        <li class="nav-cta"><a href="#visit" class="btn btn--gold">Reserve</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo"><img src="assets/logo.svg" alt="Nick Jr's emblem" /><b>Nick Jr's</b> <span>Burgers &amp; Gyros</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">Story</a></li>
+      <li><a href="#menus">Menu</a></li>
+      <li><a href="#dishes">Signature</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="#ways">Order</a></li>
+      <li><a href="#visit" class="btn-reserve">Reserve</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="container hero-content">
-      <span class="script">Flame-grilled since 1998</span>
-      <h1>Bold Burgers. Authentic Gyros.</h1>
-      <p>Hand-pressed smashburgers seared over open flame and slow-roasted gyros carved to order — crafted fresh, every single day.</p>
-      <div class="hero-actions">
-        <a href="#menu" class="btn btn--solid">Explore the Menu</a>
-        <a href="#visit" class="btn btn--line">Reserve a Table</a>
-      </div>
-    </div>
-    <div class="scroll-cue">Scroll</div>
-  </header>
-
-  <!-- MARQUEE -->
-  <div class="strip" aria-hidden="true">
-    <div class="strip-track">
-      <span>Smashed to order&nbsp;&nbsp;&nbsp;Hand-carved gyros&nbsp;&nbsp;&nbsp;Made from scratch&nbsp;&nbsp;&nbsp;Family owned&nbsp;&nbsp;&nbsp;Fresh daily&nbsp;&nbsp;&nbsp;</span>
-      <span>Smashed to order&nbsp;&nbsp;&nbsp;Hand-carved gyros&nbsp;&nbsp;&nbsp;Made from scratch&nbsp;&nbsp;&nbsp;Family owned&nbsp;&nbsp;&nbsp;Fresh daily&nbsp;&nbsp;&nbsp;</span>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Riverdale &middot; Since 1998</p>
+    <h1>
+      Bold. Flame-Grilled.<br/>
+      <em><span class="rotator" id="rotator">
+        <span class="rotator-spacer">Crave&#8209;worthy.</span>
+        <span class="word active">Unforgettable.</span>
+        <span class="word">Crave-worthy.</span>
+        <span class="word">Hand-carved.</span>
+        <span class="word">Authentic.</span>
+        <span class="word">Yours.</span>
+      </span></em>
+    </h1>
+    <p class="hero-sub">A neighborhood tradition for over 25 years &mdash; hand-pressed smashburgers, spit-roasted gyros, and made-from-scratch sauces.</p>
+    <div class="hero-cta">
+      <a href="#visit" class="btn primary">Reserve a Table</a>
+      <a href="#menus" class="btn">Explore the Menu</a>
     </div>
   </div>
+  <div class="scroll-hint">Scroll &nbsp; &darr;</div>
+</header>
 
-  <!-- STORY -->
-  <section class="section" id="story">
-    <div class="container">
-      <div class="split">
-        <div class="split-media reveal">
-          <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=1100&q=80" alt="Gyro being carved fresh from the spit" loading="lazy" />
-          <span class="frame"></span>
-        </div>
-        <div class="split-body reveal">
-          <span class="eyebrow">Our Story</span>
-          <h2>Two traditions, one family kitchen.</h2>
-          <p>It began in 1998 when Nick Sr. opened a corner grill with a single flat-top and his mother's gyro recipe carried over from Thessaloniki. One rule guided everything: never cut a corner you'd taste on the plate.</p>
-          <p>Today his son carries that rule forward. We still press every patty by hand, stack the gyro spit each morning, and make the tzatziki and Nick Sauce from scratch — because that's how it's meant to be done.</p>
-          <p class="signature">— The Nick Jr's Family</p>
-          <div class="stats">
-            <div class="stat"><strong>25+</strong><span>Years Grilling</span></div>
-            <div class="stat"><strong>1M+</strong><span>Plates Served</span></div>
-            <div class="stat"><strong>4.9★</strong><span>Guest Rating</span></div>
-          </div>
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-image reveal">
+        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=1200&q=80" alt="Gyro carved fresh from the spit" />
+        <div class="story-badge">Established 1998</div>
+      </div>
+      <div class="story-text">
+        <p class="eyebrow reveal">Our story</p>
+        <h2 class="section-title reveal reveal-delay-1">A neighborhood <em>tradition</em>.</h2>
+        <p class="lead reveal reveal-delay-2">It began in 1998 when Nick Sr. opened a corner grill with a single flat-top and his mother's gyro recipe carried over from Thessaloniki &mdash; with one rule: never cut a corner you'd taste on the plate.</p>
+        <p class="reveal reveal-delay-3">Today his son carries that rule forward. We still press every patty by hand, stack the gyro spit each morning, and make the tzatziki and Nick Sauce from scratch. Fresh-ground beef, produce delivered daily, and bread baked locally &mdash; never frozen, never rushed.</p>
+        <p class="reveal reveal-delay-3">Pull up to the counter, gather the table for a birthday, or grab a bag to go. You'll leave already planning your next visit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Smashed Burgers <span class="dot">&#9670;</span> Hand-Carved Gyros <span class="dot">&#9670;</span> House Tzatziki <span class="dot">&#9670;</span> Hand-Cut Fries <span class="dot">&#9670;</span> Baklava Shakes <span class="dot">&#9670;</span> Made From Scratch <span class="dot">&#9670;</span></span>
+    <span>Smashed Burgers <span class="dot">&#9670;</span> Hand-Carved Gyros <span class="dot">&#9670;</span> House Tzatziki <span class="dot">&#9670;</span> Hand-Cut Fries <span class="dot">&#9670;</span> Baklava Shakes <span class="dot">&#9670;</span> Made From Scratch <span class="dot">&#9670;</span></span>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="container section-head-center">
+    <p class="eyebrow reveal">What sets us apart</p>
+    <h2 class="section-title reveal reveal-delay-1">Two kitchens, <em>one obsession</em> with flavor.</h2>
+    <p class="section-intro reveal reveal-delay-2">From the American grill to the Mediterranean spit, four pillars guide every plate we send out.</p>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon">&#128293;</div>
+        <h3>Flame-Grilled</h3>
+        <p>Hand-pressed patties seared on a screaming-hot flat-top &mdash; crisp edges, never frozen.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">&#129481;</div>
+        <h3>Authentic Gyros</h3>
+        <p>Seasoned lamb &amp; beef slow-roasted on a vertical spit and carved fresh into warm pita.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">&#129362;</div>
+        <h3>Made From Scratch</h3>
+        <p>Tzatziki, Nick Sauce, hand-cut fries and hand-spun shakes &mdash; all made in-house, daily.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-icon">&#127968;</div>
+        <h3>Family-Owned</h3>
+        <p>Two generations, one corner of the neighborhood, and a quarter-century of regulars.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENUS -->
+<section class="menus" id="menus">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal">The menu</p>
+      <h2 class="section-title reveal reveal-delay-1">Where the <em>grill</em> meets the table.</h2>
+      <p class="section-intro reveal reveal-delay-2">Flame-grilled burgers, hand-carved gyros, and everything in between &mdash; choose your craving.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist">
+      <button class="menu-tab active" data-tab="burgers">Burgers</button>
+      <button class="menu-tab" data-tab="gyros">Gyros &amp; Wraps</button>
+      <button class="menu-tab" data-tab="sides">Sides &amp; Salads</button>
+      <button class="menu-tab" data-tab="drinks">Shakes &amp; Drinks</button>
+      <button class="menu-tab" data-tab="kids">Kids</button>
+    </div>
+
+    <!-- BURGERS -->
+    <div class="menu-panel active" id="panel-burgers">
+      <div class="menu-section">
+        <h3 class="menu-section-title">Flame-Grilled Burgers</h3>
+        <p class="menu-section-sub">Never frozen &middot; 100% fresh-ground beef &middot; toasted brioche.</p>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">The Double Smash <span class="tag">Fav</span></div><div class="menu-item-price">$11.95</div></div><p class="menu-item-desc">Two hand-pressed patties, double American, house pickles, caramelized onion &amp; Nick Sauce.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Classic Single</div><div class="menu-item-price">$8.95</div></div><p class="menu-item-desc">Quarter-pound smash patty, American, lettuce, tomato, onion &amp; pickle.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">The Firecracker <span class="tag spicy">Spicy</span></div><div class="menu-item-price">$12.50</div></div><p class="menu-item-desc">Double patty, pepper jack, jalapeños, crispy onions &amp; chipotle aioli.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Bacon &amp; Bourbon</div><div class="menu-item-price">$13.25</div></div><p class="menu-item-desc">Smoked bacon, cheddar, frizzled onions &amp; bourbon-glaze BBQ.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Mushroom Swiss</div><div class="menu-item-price">$12.25</div></div><p class="menu-item-desc">Sautéed cremini mushrooms, melted Swiss &amp; garlic aioli.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Garden Veggie Smash <span class="tag veg">Veg</span></div><div class="menu-item-price">$11.50</div></div><p class="menu-item-desc">House black-bean patty, pepper jack, avocado, lettuce &amp; chipotle aioli.</p></div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- SIGNATURES -->
-  <section class="section section--dark" id="signatures">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow center">The Favorites</span>
-        <h2>Signatures Worth the Trip</h2>
-        <p>A few of the plates our guests drive across town for — built fresh, the moment you order.</p>
-      </div>
-      <div class="dishes">
-        <article class="dish reveal">
-          <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=900&q=80" alt="The Double Smash burger" loading="lazy" />
-          <div class="dish-body"><span class="price">$11.95</span><h3>The Double Smash</h3><p>Two hand-pressed patties, double American, house pickles, caramelized onion &amp; Nick Sauce.</p></div>
-        </article>
-        <article class="dish reveal">
-          <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=900&q=80" alt="The Classic Greek Gyro" loading="lazy" />
-          <div class="dish-body"><span class="price">$10.95</span><h3>Classic Greek Gyro</h3><p>Spit-roasted lamb &amp; beef, tomato, red onion, lettuce &amp; house tzatziki in warm pita.</p></div>
-        </article>
-        <article class="dish reveal">
-          <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=80" alt="Loaded gyro fries" loading="lazy" />
-          <div class="dish-body"><span class="price">$10.25</span><h3>Loaded Gyro Fries</h3><p>Hand-cut fries piled with gyro meat, feta, tomato, onion &amp; a tzatziki drizzle.</p></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- MENU -->
-  <section class="section section--alt" id="menu">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow center">Fresh Daily</span>
-        <h2>The Menu</h2>
-        <p>Every item is hand-prepared in-house. Choose a category to explore.</p>
-      </div>
-
-      <div class="menu-tabs reveal">
-        <button class="menu-tab active" data-cat="all">All</button>
-        <button class="menu-tab" data-cat="burgers">Burgers</button>
-        <button class="menu-tab" data-cat="gyros">Gyros &amp; Wraps</button>
-        <button class="menu-tab" data-cat="sides">Sides &amp; Salads</button>
-        <button class="menu-tab" data-cat="drinks">Shakes &amp; Drinks</button>
-      </div>
-
-      <div class="menu-group reveal" data-cat="burgers">
-        <h3>Flame-Grilled Burgers</h3>
-        <p class="sub">Never frozen · 100% fresh-ground beef · toasted brioche</p>
-        <div class="menu-item"><span class="menu-item__name">The Double Smash</span><span class="menu-item__price">$11.95</span><span class="menu-item__desc">Two hand-pressed patties, double American, pickles, caramelized onion &amp; Nick Sauce.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Classic Single</span><span class="menu-item__price">$8.95</span><span class="menu-item__desc">Quarter-pound smash patty, American, lettuce, tomato, onion &amp; pickle.</span></div>
-        <div class="menu-item"><span class="menu-item__name">The Firecracker<span class="dot dot--hot"></span></span><span class="menu-item__price">$12.50</span><span class="menu-item__desc">Double patty, pepper jack, jalapeños, crispy onions &amp; chipotle aioli.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Bacon &amp; Bourbon</span><span class="menu-item__price">$13.25</span><span class="menu-item__desc">Smoked bacon, cheddar, frizzled onions &amp; bourbon-glaze BBQ.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Garden Veggie Smash<span class="dot dot--veg"></span></span><span class="menu-item__price">$11.50</span><span class="menu-item__desc">House black-bean patty, pepper jack, avocado, lettuce &amp; chipotle aioli.</span></div>
-      </div>
-
-      <div class="menu-group reveal" data-cat="gyros">
-        <h3>Gyros &amp; Wraps</h3>
-        <p class="sub">Carved to order · house-made tzatziki · warm pita</p>
-        <div class="menu-item"><span class="menu-item__name">Classic Greek Gyro</span><span class="menu-item__price">$10.95</span><span class="menu-item__desc">Spit-roasted lamb &amp; beef, tomato, red onion, lettuce &amp; tzatziki.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Chicken Souvlaki Gyro</span><span class="menu-item__price">$10.50</span><span class="menu-item__desc">Marinated grilled chicken, tomato, onion &amp; tzatziki, finished with oregano.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Spicy Harissa Gyro<span class="dot dot--hot"></span></span><span class="menu-item__price">$11.25</span><span class="menu-item__desc">Lamb &amp; beef with harissa, pickled peppers &amp; cooling yogurt-mint sauce.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Falafel Wrap<span class="dot dot--veg"></span></span><span class="menu-item__price">$9.95</span><span class="menu-item__desc">Crispy chickpea falafel, hummus, cucumber, tomato &amp; tahini.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Gyro Platter</span><span class="menu-item__price">$14.95</span><span class="menu-item__desc">Carved gyro over rice with Greek salad, pita &amp; tzatziki.</span></div>
-      </div>
-
-      <div class="menu-group reveal" data-cat="sides">
-        <h3>Sides &amp; Salads</h3>
-        <p class="sub">Hand-cut · made in small batches</p>
-        <div class="menu-item"><span class="menu-item__name">Hand-Cut Fries</span><span class="menu-item__price">$4.25</span><span class="menu-item__desc">Skin-on, double-fried, sea salt.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Loaded Cheese Fries</span><span class="menu-item__price">$6.50</span><span class="menu-item__desc">Cheddar sauce, bacon &amp; scallions.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Crispy Onion Rings</span><span class="menu-item__price">$5.25</span><span class="menu-item__desc">Beer-battered, golden &amp; crunchy.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Traditional Greek Salad<span class="dot dot--veg"></span></span><span class="menu-item__price">$9.50</span><span class="menu-item__desc">Tomato, cucumber, olives, feta, red onion &amp; oregano vinaigrette.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Gyro Salad Bowl</span><span class="menu-item__price">$12.95</span><span class="menu-item__desc">Crisp greens, carved gyro, feta, tomato &amp; tzatziki.</span></div>
-      </div>
-
-      <div class="menu-group reveal" data-cat="drinks">
-        <h3>Shakes &amp; Drinks</h3>
-        <p class="sub">Hand-spun · squeezed &amp; brewed daily</p>
-        <div class="menu-item"><span class="menu-item__name">Hand-Spun Milkshake</span><span class="menu-item__price">$5.95</span><span class="menu-item__desc">Vanilla, chocolate, strawberry or salted caramel.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Baklava Shake</span><span class="menu-item__price">$6.50</span><span class="menu-item__desc">Honey, walnut &amp; cinnamon — a Nick Jr's original.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Fresh Lemonade</span><span class="menu-item__price">$3.50</span><span class="menu-item__desc">Classic or strawberry, squeezed daily.</span></div>
-        <div class="menu-item"><span class="menu-item__name">Greek Frappé</span><span class="menu-item__price">$4.25</span><span class="menu-item__desc">Iced foamed coffee, sweet or regular.</span></div>
-      </div>
-
-      <p class="menu-legend"><span class="dot dot--hot"></span> Spicy <span class="dot dot--veg"></span> Vegetarian</p>
-    </div>
-  </section>
-
-  <!-- CATERING SPLIT -->
-  <section class="section">
-    <div class="container">
-      <div class="split flip">
-        <div class="split-media reveal">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=80" alt="Catering spread at an event" loading="lazy" />
-          <span class="frame"></span>
-        </div>
-        <div class="split-body reveal">
-          <span class="eyebrow">For Your Event</span>
-          <h2>Catering crowds remember.</h2>
-          <p>From office lunches to graduations and weddings, we bring the grill to you — build-your-own burger bars, carved gyro platters, fresh salads and hand-spun shakes for groups of 15 to 300.</p>
-          <p>Full-service delivery, setup and cleanup available. Tell us the date and we'll handle the rest.</p>
-          <a href="#visit" class="btn btn--ink">Plan Your Catering</a>
+    <!-- GYROS -->
+    <div class="menu-panel" id="panel-gyros">
+      <div class="menu-section">
+        <h3 class="menu-section-title">Gyros &amp; Wraps</h3>
+        <p class="menu-section-sub">Carved to order &middot; house-made tzatziki &middot; warm pita.</p>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Classic Greek Gyro <span class="tag">Fav</span></div><div class="menu-item-price">$10.95</div></div><p class="menu-item-desc">Spit-roasted lamb &amp; beef, tomato, red onion, lettuce &amp; house tzatziki.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Chicken Souvlaki Gyro</div><div class="menu-item-price">$10.50</div></div><p class="menu-item-desc">Marinated grilled chicken, tomato, onion &amp; tzatziki, finished with oregano.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Spicy Harissa Gyro <span class="tag spicy">Spicy</span></div><div class="menu-item-price">$11.25</div></div><p class="menu-item-desc">Lamb &amp; beef with harissa, pickled peppers &amp; cooling yogurt-mint sauce.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Falafel Wrap <span class="tag veg">Veg</span></div><div class="menu-item-price">$9.95</div></div><p class="menu-item-desc">Crispy chickpea falafel, hummus, cucumber, tomato &amp; tahini.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Gyro Platter</div><div class="menu-item-price">$14.95</div></div><p class="menu-item-desc">Carved gyro over rice with Greek salad, pita &amp; tzatziki.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Loaded Gyro Fries</div><div class="menu-item-price">$10.25</div></div><p class="menu-item-desc">Hand-cut fries piled with gyro meat, feta, tomato, onion &amp; tzatziki drizzle.</p></div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="gallery reveal">
-      <a href="#menu"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80" alt="Smashburger" loading="lazy" /></a>
-      <a href="#menu"><img src="https://images.unsplash.com/photo-1633896949673-1eb9d131a9b4?auto=format&fit=crop&w=700&q=80" alt="Greek gyro plate" loading="lazy" /></a>
-      <a href="#menu"><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80" alt="Cheeseburger close up" loading="lazy" /></a>
-      <a href="#menu"><img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80" alt="Milkshakes" loading="lazy" /></a>
-      <a href="#menu"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=700&q=80" alt="Greek salad" loading="lazy" /></a>
-      <a href="#menu"><img src="https://images.unsplash.com/photo-1639024471283-03518883512d?auto=format&fit=crop&w=700&q=80" alt="Falafel wrap" loading="lazy" /></a>
-      <a href="#menu"><img src="https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=700&q=80" alt="French fries" loading="lazy" /></a>
-      <a href="#menu"><img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=700&q=80" alt="Restaurant dining room" loading="lazy" /></a>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow center">Loved Locally</span>
-        <h2>What Our Guests Say</h2>
-      </div>
-      <div class="quotes">
-        <figure class="quote reveal"><div class="stars">★★★★★</div><p>"Hands down the best smashburger in town. The Nick Sauce is dangerously good."</p><cite>Marcus T. — Regular since 2016</cite></figure>
-        <figure class="quote reveal"><div class="stars">★★★★★</div><p>"The gyro tastes exactly like the ones I had in Athens. Authentic and generous."</p><cite>Elena P. — Verified diner</cite></figure>
-        <figure class="quote reveal"><div class="stars">★★★★★</div><p>"Catered our office party and everyone raved. On time and absolutely incredible."</p><cite>Dana R. — Local business owner</cite></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- VISIT / RESERVE -->
-  <section class="section section--alt" id="visit">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow center">Come See Us</span>
-        <h2>Visit &amp; Reserve</h2>
-        <p>Find us downtown, check our hours, or book your table below.</p>
-      </div>
-      <div class="visit">
-        <div class="reveal">
-          <ul class="info-list">
-            <li><span class="k">Address</span><span class="v">742 Grill Street<br/>Riverdale, IL 60827</span></li>
-            <li><span class="k">Phone</span><span class="v"><a href="tel:+15555550199">(555) 555-0199</a></span></li>
-            <li><span class="k">Email</span><span class="v"><a href="mailto:hello@nickjrsgrill.com">hello@nickjrsgrill.com</a></span></li>
-            <li><span class="k">Parking</span><span class="v">Free on-site lot &amp; street parking</span></li>
-          </ul>
-          <div class="hours">
-            <div class="hours-row"><span>Monday – Thursday</span><span>11:00am – 9:00pm</span></div>
-            <div class="hours-row"><span>Friday – Saturday</span><span>11:00am – 11:00pm</span></div>
-            <div class="hours-row"><span>Sunday</span><span>12:00pm – 8:00pm</span></div>
-          </div>
+    <!-- SIDES & SALADS -->
+    <div class="menu-panel" id="panel-sides">
+      <div class="menu-section">
+        <h3 class="menu-section-title">Sides</h3>
+        <p class="menu-section-sub">Hand-cut and fried fresh, all day.</p>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Hand-Cut Fries</div><div class="menu-item-price">$4.25</div></div><p class="menu-item-desc">Skin-on, double-fried, sea salt.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Loaded Cheese Fries</div><div class="menu-item-price">$6.50</div></div><p class="menu-item-desc">Cheddar sauce, bacon &amp; scallions.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Crispy Onion Rings</div><div class="menu-item-price">$5.25</div></div><p class="menu-item-desc">Beer-battered, golden &amp; crunchy.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Greek Lemon Potatoes</div><div class="menu-item-price">$5.50</div></div><p class="menu-item-desc">Roasted with lemon, garlic &amp; oregano.</p></div>
         </div>
-
-        <div class="reserve-card reveal">
-          <h3>Reserve a Table</h3>
-          <p class="sub">We'll confirm by phone or email. Parties of 10+ please call us.</p>
-          <div class="form-success">Thank you! Your reservation request has been received — we'll be in touch shortly to confirm.</div>
-          <form data-demo novalidate>
-            <div class="field-row">
-              <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" required placeholder="Jane Doe" /></div>
-              <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required placeholder="(555) 555-0123" /></div>
-            </div>
-            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@email.com" /></div>
-            <div class="field-row">
-              <div class="field"><label for="date">Date</label><input id="date" name="date" type="date" required /></div>
-              <div class="field"><label for="time">Time</label><input id="time" name="time" type="time" required /></div>
-            </div>
-            <div class="field">
-              <label for="guests">Party Size</label>
-              <select id="guests" name="guests" required>
-                <option value="">Select…</option>
-                <option>1 – 2 guests</option>
-                <option>3 – 4 guests</option>
-                <option>5 – 6 guests</option>
-                <option>7 – 9 guests</option>
-                <option>10+ (please call)</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn--solid" style="width:100%; justify-content:center;">Request Reservation</button>
-          </form>
+      </div>
+      <div class="menu-section">
+        <h3 class="menu-section-title">Fresh Salads</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Traditional Greek Salad <span class="tag veg">Veg</span></div><div class="menu-item-price">$9.50</div></div><p class="menu-item-desc">Tomato, cucumber, olives, feta, red onion &amp; oregano vinaigrette.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Gyro Salad Bowl</div><div class="menu-item-price">$12.95</div></div><p class="menu-item-desc">Crisp greens, carved gyro, feta, tomato &amp; tzatziki.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Grilled Chicken Greek</div><div class="menu-item-price">$12.50</div></div><p class="menu-item-desc">Greek salad topped with marinated grilled chicken.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Garden Side Salad <span class="tag veg">Veg</span></div><div class="menu-item-price">$5.25</div></div><p class="menu-item-desc">Mixed greens, tomato, cucumber &amp; choice of dressing.</p></div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="assets/logo.svg" alt="Nick Jr's Burgers & Gyros emblem" />
-          <p>Flame-grilled burgers and authentic Greek gyros, crafted fresh daily and served with hometown pride since 1998.</p>
-          <div class="social"><a href="#" aria-label="Facebook">Fb</a><a href="#" aria-label="Instagram">Ig</a><a href="#" aria-label="X">X</a></div>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#signatures">Signatures</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#visit">Visit &amp; Reserve</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Find Us</h4>
-          <ul>
-            <li>742 Grill Street</li>
-            <li>Riverdale, IL 60827</li>
-            <li><a href="tel:+15555550199">(555) 555-0199</a></li>
-            <li><a href="mailto:hello@nickjrsgrill.com">hello@nickjrsgrill.com</a></li>
-          </ul>
+    <!-- DRINKS -->
+    <div class="menu-panel" id="panel-drinks">
+      <div class="menu-section">
+        <h3 class="menu-section-title">Hand-Spun Shakes</h3>
+        <p class="menu-section-sub">Real ice cream, spun to order.</p>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Classic Milkshake <span class="tag">Fav</span></div><div class="menu-item-price">$5.95</div></div><p class="menu-item-desc">Vanilla, chocolate, strawberry or salted caramel.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Baklava Shake</div><div class="menu-item-price">$6.50</div></div><p class="menu-item-desc">Honey, walnut &amp; cinnamon &mdash; a Nick Jr's original.</p></div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Nick Jr's Burgers &amp; Gyros · All rights reserved.</span>
-        <span>Dine In · Take Out · Catering</span>
+      <div class="menu-section">
+        <h3 class="menu-section-title">Drinks</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Fresh Lemonade</div><div class="menu-item-price">$3.50</div></div><p class="menu-item-desc">Classic or strawberry, squeezed daily.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Greek Frappé</div><div class="menu-item-price">$4.25</div></div><p class="menu-item-desc">Iced foamed coffee, sweet or regular.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Fountain Soda</div><div class="menu-item-price">$2.95</div></div><p class="menu-item-desc">Free refills, dine-in.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Bottled Water</div><div class="menu-item-price">$1.95</div></div><p class="menu-item-desc">Still or sparkling.</p></div>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <script src="js/main.js"></script>
+    <!-- KIDS -->
+    <div class="menu-panel" id="panel-kids">
+      <div class="menu-section">
+        <h3 class="menu-section-title">Lil' Grillers (12 &amp; Under)</h3>
+        <p class="menu-section-sub">Served with fries &amp; a drink &mdash; $7.50 each.</p>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Lil' Smash Burger</div><div class="menu-item-price">$7.50</div></div><p class="menu-item-desc">Single patty with American cheese.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Mini Chicken Pita</div><div class="menu-item-price">$7.50</div></div><p class="menu-item-desc">Grilled chicken in soft pita.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Chicken Tenders</div><div class="menu-item-price">$7.50</div></div><p class="menu-item-desc">Three crispy tenders with dip.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Cheesy Pita Melt <span class="tag veg">Veg</span></div><div class="menu-item-price">$7.50</div></div><p class="menu-item-desc">Toasted pita filled with melted cheese.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR DISHES -->
+<section class="popular" id="dishes">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal">Signature plates</p>
+      <h2 class="section-title reveal reveal-delay-1">The plates <em>we're known for</em>.</h2>
+    </div>
+    <div class="dishes-grid">
+      <div class="dish reveal">
+        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=900&q=80" alt="The Double Smash burger" />
+        <div class="dish-info">
+          <span class="dish-tag">Customer favorite</span>
+          <div class="dish-name">The Double Smash</div>
+          <p class="dish-desc">Two hand-pressed patties, double American, house pickles, caramelized onion &amp; secret Nick Sauce.</p>
+        </div>
+      </div>
+      <div class="dish reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=900&q=80" alt="Classic Greek Gyro" />
+        <div class="dish-info">
+          <span class="dish-tag">A family recipe</span>
+          <div class="dish-name">Classic Greek Gyro</div>
+          <p class="dish-desc">Spit-roasted lamb &amp; beef, tomato, red onion, lettuce &amp; house tzatziki in warm pita.</p>
+        </div>
+      </div>
+      <div class="dish reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=900&q=80" alt="Loaded gyro fries" />
+        <div class="dish-info">
+          <span class="dish-tag">Crowd-pleaser</span>
+          <div class="dish-name">Loaded Gyro Fries</div>
+          <p class="dish-desc">Hand-cut fries piled with carved gyro, feta, tomato, onion &amp; a generous tzatziki drizzle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="container">
+    <blockquote class="fade-words" id="gmQuote">
+      <span class="fw">Pull</span>
+      <span class="fw">up</span>
+      <span class="fw">a</span>
+      <span class="fw">seat</span>
+      <span class="fw">&mdash;</span>
+      <span class="fw">you're</span>
+      <span class="fw">family</span>
+      <span class="fw">here.</span>
+    </blockquote>
+    <p style="font-family:var(--serif);font-style:italic;font-size:20px;max-width:800px;margin:0 auto 30px;opacity:.9;">Flame-grilled burgers, hand-carved gyros, made-from-scratch sauces, and warm, unpretentious service that'll make you want to come back for more.</p>
+    <cite>&mdash; Nick Jr., Owner</cite>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-info">
+        <p class="eyebrow reveal" style="color:var(--gold-soft);">Plan your visit</p>
+        <h2 class="section-title reveal reveal-delay-1">Find us on <em>Grill Street</em>.</h2>
+        <p class="reveal reveal-delay-2">742 Grill Street<br/>Riverdale, IL 60827</p>
+        <p class="reveal reveal-delay-2">Phone &middot; (555) 555-0199<br/>Email &middot; hello@nickjrsgrill.com</p>
+        <p class="reveal reveal-delay-3" style="margin-top:30px;">Right downtown with free on-site parking and easy street access. Look for the red-and-gold sign &mdash; you can't miss it.</p>
+        <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="#ways" class="btn primary">Reserve a Table</a>
+          <a href="#ways" class="btn" style="color:#fff;">Order Online</a>
+        </div>
+      </div>
+      <div class="hours-card reveal reveal-delay-2">
+        <h3 class="hours-title">We're open every day.</h3>
+        <div class="hours-row"><strong>Mon &ndash; Thu</strong><span>11:00am &ndash; 9:00pm</span></div>
+        <div class="hours-row"><strong>Fri &ndash; Sat</strong><span>11:00am &ndash; 11:00pm</span></div>
+        <div class="hours-row"><strong>Sunday</strong><span>12:00pm &ndash; 8:00pm</span></div>
+        <div class="hours-row"><strong>Kitchen</strong><span>Until 30 min before close</span></div>
+        <div class="happy-hour-highlight">
+          <strong>Lunch Special 11a&ndash;2p</strong>
+          <span>Burger or gyro + fries + drink &middot; $9.95</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAYS TO ENJOY -->
+<section class="locations" id="ways">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal">Order your way</p>
+      <h2 class="section-title reveal reveal-delay-1">However you're <em>hungry</em>.</h2>
+      <p class="section-intro reveal reveal-delay-2">Dine in, grab it to go, or let us cater your next gathering.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc featured reveal">
+        <span class="loc-tag">Come on in</span>
+        <div class="loc-city">Dine In</div>
+        <div class="loc-detail">Counter seating &amp; booths<br/>742 Grill Street</div>
+      </div>
+      <div class="loc reveal reveal-delay-1">
+        <span class="loc-tag">Call ahead</span>
+        <div class="loc-city">Take Out</div>
+        <div class="loc-detail">Hot &amp; ready for pickup<br/>(555) 555-0199</div>
+      </div>
+      <div class="loc reveal reveal-delay-2">
+        <span class="loc-tag">To your door</span>
+        <div class="loc-city">Delivery</div>
+        <div class="loc-detail">Order on your favorite app</div>
+      </div>
+      <div class="loc reveal reveal-delay-3" style="background:linear-gradient(135deg,var(--gold) 0%,var(--gold-soft) 100%);">
+        <span class="loc-tag" style="color:var(--char);">For your event</span>
+        <div class="loc-city" style="color:var(--char);">Catering</div>
+        <div class="loc-detail" style="color:var(--char);opacity:.85;">Burger bars &amp; gyro platters<br/>Groups of 15&ndash;300</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="container">
+    <h2>Catering for your next event.</h2>
+    <p>Build-your-own burger bars, carved gyro platters, fresh salads &amp; hand-spun shakes. We bring the grill to you.</p>
+    <a href="#visit" class="btn">Plan Your Catering</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot">
+      <div class="foot-logo">Nick Jr's <span>Burgers &amp; Gyros</span></div>
+      <p>742 Grill Street<br/>Riverdale, IL 60827</p>
+      <p>(555) 555-0199<br/>hello@nickjrsgrill.com</p>
+      <p style="margin-top:18px;font-family:var(--script);font-size:22px;color:var(--gold-soft);">Flame-grilled since 1998.</p>
+    </div>
+    <div class="foot">
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="#menus">Burgers</a></li>
+        <li><a href="#menus">Gyros &amp; Wraps</a></li>
+        <li><a href="#menus">Sides &amp; Salads</a></li>
+        <li><a href="#menus">Shakes &amp; Drinks</a></li>
+        <li><a href="#menus">Kids</a></li>
+      </ul>
+    </div>
+    <div class="foot">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#visit">Reservations</a></li>
+        <li><a href="#ways">Order Online</a></li>
+        <li><a href="#ways">Take Out</a></li>
+        <li><a href="#ways">Catering</a></li>
+        <li><a href="#ways">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="foot">
+      <h4>Nick Jr's</h4>
+      <ul>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#dishes">Signature Plates</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; 1998&ndash;<span id="yr">2026</span> Nick Jr's Burgers &amp; Gyros &middot; All Rights Reserved &middot; Dine In &middot; Take Out &middot; Catering</p>
+</footer>
+
+<script>
+  /* Rotating words */
+  (function rotator() {
+    const words = document.querySelectorAll('#rotator .word');
+    if (!words.length) return;
+    let i = 0;
+    setInterval(() => {
+      words[i].classList.remove('active');
+      i = (i + 1) % words.length;
+      words[i].classList.add('active');
+    }, 2400);
+  })();
+
+  /* Sticky nav scrolled state */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  /* Mobile nav toggle */
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
+  );
+
+  /* Menu tabs */
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+
+  /* Reveal on scroll */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal, .fade-words').forEach(el => io.observe(el));
+
+  /* Year */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
