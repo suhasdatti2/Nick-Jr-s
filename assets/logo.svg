@@ -1,39 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Nick Jr's Burgers and Gyros emblem">
-  <defs>
-    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f6d488"/>
-      <stop offset="0.5" stop-color="#d9a441"/>
-      <stop offset="1" stop-color="#b07d27"/>
-    </linearGradient>
-    <linearGradient id="flame" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="#e6532b"/>
-      <stop offset="1" stop-color="#f2a23c"/>
-    </linearGradient>
-  </defs>
-
-  <!-- outer ring -->
-  <circle cx="110" cy="110" r="104" fill="#16130f"/>
-  <circle cx="110" cy="110" r="104" fill="none" stroke="url(#gold)" stroke-width="3"/>
-  <circle cx="110" cy="110" r="93" fill="none" stroke="url(#gold)" stroke-width="1.2" opacity="0.6"/>
-
-  <!-- top text -->
-  <path id="t" d="M40 110 A70 70 0 0 1 180 110" fill="none"/>
-  <path id="b" d="M44 128 A66 66 0 0 0 176 128" fill="none"/>
-  <text fill="url(#gold)" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="20" letter-spacing="3">
-    <textPath href="#t" startOffset="50%" text-anchor="middle">NICK JR'S</textPath>
-  </text>
-  <text fill="#f3e9d6" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" letter-spacing="4.5">
-    <textPath href="#b" startOffset="50%" text-anchor="middle">BURGERS &amp; GYROS</textPath>
-  </text>
-
-  <!-- monogram + flame center -->
-  <g transform="translate(110 104)">
-    <path d="M0 -34 C 14 -18, 16 -4, 6 8 C 12 4, 16 -4, 15 -14 C 24 -2, 22 14, 8 24 C 18 22, 30 10, 28 -8 C 40 8, 34 34, 6 40 C -24 46, -40 18, -26 -6 C -20 4, -18 12, -10 14 C -22 0, -18 -20, 0 -34 Z" fill="url(#flame)" opacity="0.9"/>
-    <text x="0" y="14" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#16130f">NJ</text>
-  </g>
-
-  <!-- est. -->
-  <text x="110" y="178" text-anchor="middle" fill="url(#gold)" font-family="Georgia, serif" font-size="10" letter-spacing="3">EST. 1998</text>
-  <circle cx="74" cy="160" r="2" fill="url(#gold)"/>
-  <circle cx="146" cy="160" r="2" fill="url(#gold)"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nick's Jr. Burgers and Gyros">
+  <rect x="2" y="2" width="96" height="96" rx="24" fill="#e23b2e"/>
+  <rect x="7.5" y="7.5" width="85" height="85" rx="19" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- top bun -->
+  <path d="M22 46 C 24 27 76 27 78 46 Z" fill="#edc575"/>
+  <!-- sesame -->
+  <ellipse cx="39" cy="39" rx="2" ry="1.2" fill="#fff6e2"/>
+  <ellipse cx="61" cy="39" rx="2" ry="1.2" fill="#fff6e2"/>
+  <ellipse cx="50" cy="34" rx="2" ry="1.2" fill="#fff6e2"/>
+  <!-- eyes -->
+  <circle cx="43" cy="42" r="4.6" fill="#fffaf0"/>
+  <circle cx="57" cy="42" r="4.6" fill="#fffaf0"/>
+  <circle cx="43.9" cy="42.7" r="2.1" fill="#3a2a1e"/>
+  <circle cx="57.9" cy="42.7" r="2.1" fill="#3a2a1e"/>
+  <!-- lettuce -->
+  <path d="M21 46 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 L79 52 L21 52 Z" fill="#7cb342"/>
+  <!-- cheese -->
+  <path d="M22 51 L78 51 L78 55 q-7 5 -14 1 q-7 5 -14 1 q-7 5 -14 1 q-7 5 -14 1 Z" fill="#f6b73c"/>
+  <!-- patty -->
+  <rect x="22" y="55" width="56" height="9" rx="4.5" fill="#6e3b22"/>
+  <!-- bottom bun -->
+  <path d="M25 64 L75 64 C 79 64 79 71 74 72 C 60 76 40 76 26 72 C 21 71 21 64 25 64 Z" fill="#edc575"/>
 </svg>

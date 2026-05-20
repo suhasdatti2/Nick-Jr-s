@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nick Jr's Burgers &amp; Gyros — Flame-Grilled Burgers &amp; Authentic Greek Gyros</title>
-<meta name="description" content="Nick Jr's Burgers & Gyros — hand-pressed flame-grilled smashburgers, spit-roasted Greek gyros, hand-cut fries, and made-from-scratch sauces. A neighborhood tradition since 1998." />
-<link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+<title>Nick's Jr Burgers &amp; Gyros — Everett, WA | Flame-Grilled Burgers &amp; Gyros</title>
+<meta name="description" content="Nick's Jr Burgers & Gyros in Everett, WA — imaginative flame-grilled burgers, hand-carved gyros & sides, counter-serve with outdoor seating. 4.7 stars across 2,182 Google reviews." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23e23b2e'/%3E%3Ccircle cx='40' cy='45' r='6' fill='%23fff'/%3E%3Ccircle cx='60' cy='45' r='6' fill='%23fff'/%3E%3Crect x='28' y='58' width='44' height='9' rx='4' fill='%23fff'/%3E%3C/svg%3E" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
@@ -13,14 +13,14 @@
   :root {
     --char: #211a15;
     --char-deep: #150f0b;
+    --red: #e23b2e;
+    --red-deep: #b5281d;
     --gold: #d9a441;
     --gold-soft: #e8c578;
     --cream: #f7f1e6;
     --cream-warm: #efe6d3;
     --ink: #1f1a17;
     --muted: #756b60;
-    --ember: #d4452a;
-    --flame: #a8331d;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Inter', system-ui, sans-serif;
     --script: 'Caveat', cursive;
@@ -28,186 +28,62 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--sans);
-    color: var(--ink);
-    background: var(--cream);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+  body { font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.6; overflow-x: hidden; }
   img { max-width: 100%; display: block; }
   a { color: inherit; text-decoration: none; transition: color .3s; }
 
   /* ---------- TOP STRIP ---------- */
-  .top-strip {
-    background: var(--char-deep);
-    color: var(--gold-soft);
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 8px 16px;
-    font-weight: 500;
-  }
+  .top-strip { background: var(--char-deep); color: var(--gold-soft); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; text-align: center; padding: 8px 16px; font-weight: 500; }
   .top-strip span { margin: 0 14px; opacity: .9; }
-  .top-strip a:hover { color: #fff; }
+  .top-strip .star { color: var(--gold); }
 
   /* ---------- NAV ---------- */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(33,26,21,.08);
-    transition: all .35s ease;
-  }
-  nav.scrolled {
-    background: rgba(33,26,21,.96);
-    border-bottom-color: rgba(217,164,65,.25);
-  }
-  nav.scrolled .nav-inner a,
-  nav.scrolled .logo { color: var(--cream); }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(33,26,21,.08); transition: all .35s ease; }
+  nav.scrolled { background: rgba(33,26,21,.96); border-bottom-color: rgba(217,164,65,.25); }
+  nav.scrolled .nav-inner a, nav.scrolled .logo b { color: var(--cream); }
   nav.scrolled .logo span { color: var(--gold-soft); }
-
-  .nav-inner {
-    max-width: 1400px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 32px;
-  }
-  .logo {
-    font-family: var(--serif);
-    font-size: 26px; font-weight: 700;
-    color: var(--char); letter-spacing: .5px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .logo img { width: 46px; height: 46px; }
-  .logo b { font-weight: 700; }
-  .logo span {
-    font-family: var(--script);
-    font-size: 22px; color: var(--gold);
-    font-weight: 500;
-  }
-  .nav-links {
-    display: flex; gap: 32px; align-items: center;
-    list-style: none;
-    font-size: 13px; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 1.5px;
-  }
+  .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 32px; }
+  .logo { display: flex; align-items: center; gap: 13px; }
+  .logo .brandmark { width: 48px; height: 48px; flex: none; }
+  .logo b { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--char); letter-spacing: .5px; }
+  .logo span { font-family: var(--script); font-size: 22px; color: var(--gold); font-weight: 500; }
+  .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
   .nav-links a { position: relative; padding: 6px 0; }
-  .nav-links a::after {
-    content: ''; position: absolute; left: 0; bottom: 0;
-    width: 0; height: 1px; background: var(--gold);
-    transition: width .3s ease;
-  }
+  .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--gold); transition: width .3s ease; }
   .nav-links a:hover::after { width: 100%; }
-  .btn-reserve {
-    background: var(--gold); color: var(--char) !important;
-    padding: 10px 22px !important; border-radius: 2px;
-    font-weight: 600 !important;
-  }
-  .btn-reserve:hover { background: var(--gold-soft); }
+  .btn-reserve { background: var(--red); color: #fff !important; padding: 10px 22px !important; border-radius: 2px; font-weight: 600 !important; }
+  .btn-reserve:hover { background: var(--red-deep); }
   .btn-reserve::after { display: none !important; }
-
   .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 22px; color: var(--char); }
 
   /* ---------- HERO ---------- */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    background:
-      radial-gradient(ellipse at top, rgba(33,26,21,.5), rgba(21,15,11,.88)),
-      url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1920&q=80') center/cover;
-    color: #fff;
-    text-align: center;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, var(--cream) 100%);
-    pointer-events: none;
-  }
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at top, rgba(33,26,21,.5), rgba(21,15,11,.88)), url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1920&q=80') center/cover; color: #fff; text-align: center; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, var(--cream) 100%); pointer-events: none; }
   .hero-inner { position: relative; z-index: 2; max-width: 1100px; padding: 0 24px; }
-  .hero-eyebrow {
-    font-family: var(--script);
-    font-size: clamp(24px, 3vw, 36px);
-    color: var(--gold-soft);
-    margin-bottom: 12px;
-    animation: fadeUp 1s ease .2s both;
-  }
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(48px, 8vw, 110px);
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -1px;
-    margin-bottom: 30px;
-    animation: fadeUp 1s ease .4s both;
-  }
+  .hero-eyebrow { font-family: var(--script); font-size: clamp(24px, 3vw, 36px); color: var(--gold-soft); margin-bottom: 12px; animation: fadeUp 1s ease .2s both; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(48px, 8vw, 110px); font-weight: 500; line-height: 1; letter-spacing: -1px; margin-bottom: 30px; animation: fadeUp 1s ease .4s both; }
   .hero h1 em { font-style: italic; color: var(--gold-soft); font-weight: 400; }
-
-  .rotator {
-    display: inline-block; position: relative;
-    color: var(--gold-soft); font-style: italic; font-weight: 400;
-    min-height: 1.05em; vertical-align: bottom;
-  }
-  .rotator .word {
-    position: absolute; left: 50%; top: 0;
-    transform: translateX(-50%) translateY(20px);
-    opacity: 0; white-space: nowrap;
-    transition: opacity 1s ease, transform 1s ease;
-  }
+  .rotator { display: inline-block; position: relative; color: var(--gold-soft); font-style: italic; font-weight: 400; min-height: 1.05em; vertical-align: bottom; }
+  .rotator .word { position: absolute; left: 50%; top: 0; transform: translateX(-50%) translateY(20px); opacity: 0; white-space: nowrap; transition: opacity 1s ease, transform 1s ease; }
   .rotator .word.active { opacity: 1; transform: translateX(-50%) translateY(0); }
   .rotator-spacer { visibility: hidden; white-space: nowrap; }
-
-  .hero-sub {
-    font-size: clamp(15px, 1.5vw, 18px);
-    font-weight: 300; letter-spacing: 3px; text-transform: uppercase;
-    max-width: 720px; margin: 0 auto 40px; opacity: .9;
-    animation: fadeUp 1s ease .6s both;
-  }
-  .hero-cta {
-    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-    animation: fadeUp 1s ease .8s both;
-  }
-  .btn {
-    display: inline-block; padding: 16px 36px;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 2.5px; text-transform: uppercase;
-    border: 1px solid var(--gold);
-    background: transparent; color: #fff; cursor: pointer;
-    transition: all .35s ease; position: relative; overflow: hidden;
-  }
+  .hero-sub { font-size: clamp(14px, 1.5vw, 17px); font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; max-width: 760px; margin: 0 auto 40px; opacity: .9; animation: fadeUp 1s ease .6s both; }
+  .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeUp 1s ease .8s both; }
+  .btn { display: inline-block; padding: 16px 36px; font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; border: 1px solid var(--gold); background: transparent; color: #fff; cursor: pointer; transition: all .35s ease; }
   .btn:hover { background: var(--gold); color: var(--char); transform: translateY(-2px); }
-  .btn.primary { background: var(--gold); color: var(--char); }
-  .btn.primary:hover { background: #fff; border-color: #fff; }
-
-  .scroll-hint {
-    position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%);
-    color: var(--gold-soft); font-size: 11px; letter-spacing: 4px;
-    text-transform: uppercase; opacity: .8;
-    animation: bob 2.5s ease-in-out infinite;
-  }
-  @keyframes bob {
-    0%,100% { transform: translateX(-50%) translateY(0); opacity: .8; }
-    50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
-  }
+  .btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+  .btn.primary:hover { background: #fff; border-color: #fff; color: var(--red-deep); }
+  .scroll-hint { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); color: var(--gold-soft); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; opacity: .8; animation: bob 2.5s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateX(-50%) translateY(0); opacity: .8; } 50% { transform: translateX(-50%) translateY(8px); opacity: 1; } }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
   /* ---------- SECTION BASE ---------- */
   section { padding: 110px 24px; }
   .container { max-width: 1200px; margin: 0 auto; }
   .eyebrow { font-family: var(--script); font-size: 28px; color: var(--gold); margin-bottom: 8px; }
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 500; line-height: 1.05;
-    color: var(--char); margin-bottom: 24px; letter-spacing: -.5px;
-  }
-  .section-title em { font-style: italic; color: var(--gold); }
-  .section-intro {
-    max-width: 720px; font-size: 17px; color: var(--muted);
-    line-height: 1.8; margin-bottom: 60px;
-  }
+  .section-title { font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); font-weight: 500; line-height: 1.05; color: var(--char); margin-bottom: 24px; letter-spacing: -.5px; }
+  .section-title em { font-style: italic; color: var(--red); }
+  .section-intro { max-width: 720px; font-size: 17px; color: var(--muted); line-height: 1.8; margin-bottom: 60px; }
   .section-head-center { text-align: center; }
   .section-head-center .section-intro { margin-left: auto; margin-right: auto; }
 
@@ -215,53 +91,24 @@
   .story { background: var(--cream); position: relative; }
   .story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
   .story-text p { font-size: 17px; color: #3a3128; margin-bottom: 18px; line-height: 1.85; }
-  .story-text .lead {
-    font-family: var(--serif); font-size: 26px; font-style: italic;
-    color: var(--char); margin-bottom: 26px; line-height: 1.4;
-  }
-  .story-image {
-    position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: 2px;
-    box-shadow: 0 30px 60px -20px rgba(33,26,21,.4);
-  }
+  .story-text .lead { font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--char); margin-bottom: 26px; line-height: 1.4; }
+  .story-image { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: 2px; box-shadow: 0 30px 60px -20px rgba(33,26,21,.4); }
   .story-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 8s ease; }
   .story-image:hover img { transform: scale(1.08); }
-  .story-image::after {
-    content: '25+'; position: absolute; bottom: -30px; right: -20px;
-    font-family: var(--serif); font-size: 200px; font-weight: 600;
-    color: var(--gold); opacity: .9; line-height: 1;
-  }
-  .story-badge {
-    position: absolute; top: 24px; left: 24px;
-    background: var(--char); color: var(--gold-soft);
-    padding: 10px 18px; font-size: 11px;
-    letter-spacing: 3px; text-transform: uppercase;
-    border-left: 2px solid var(--gold);
-  }
+  .story-image::after { content: '4.7'; position: absolute; bottom: -24px; right: -10px; font-family: var(--serif); font-size: 150px; font-weight: 600; color: var(--gold); opacity: .92; line-height: 1; }
+  .story-badge { position: absolute; top: 24px; left: 24px; background: var(--red); color: #fff; padding: 10px 18px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; border-left: 2px solid var(--gold); }
 
   /* ---------- MARQUEE ---------- */
-  .marquee {
-    background: var(--char); color: var(--gold-soft);
-    overflow: hidden; padding: 22px 0;
-    border-top: 1px solid rgba(217,164,65,.15);
-    border-bottom: 1px solid rgba(217,164,65,.15);
-  }
-  .marquee-track {
-    display: flex; gap: 60px; white-space: nowrap;
-    animation: scroll 40s linear infinite;
-    font-family: var(--serif); font-size: 28px; font-style: italic;
-  }
+  .marquee { background: var(--char); color: var(--gold-soft); overflow: hidden; padding: 22px 0; border-top: 1px solid rgba(217,164,65,.15); border-bottom: 1px solid rgba(217,164,65,.15); }
+  .marquee-track { display: flex; gap: 60px; white-space: nowrap; animation: scroll 40s linear infinite; font-family: var(--serif); font-size: 28px; font-style: italic; }
   .marquee-track span { display: inline-flex; align-items: center; gap: 60px; }
-  .marquee-track .dot { color: var(--ember); font-size: 18px; }
+  .marquee-track .dot { color: var(--red); font-size: 18px; }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* ---------- VALUES ---------- */
   .values { background: linear-gradient(180deg, var(--cream) 0%, var(--cream-warm) 100%); }
   .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
-  .value-card {
-    background: #fff; padding: 40px 28px; text-align: center;
-    border-top: 2px solid var(--gold);
-    transition: transform .4s ease, box-shadow .4s ease;
-  }
+  .value-card { background: #fff; padding: 40px 28px; text-align: center; border-top: 3px solid var(--red); transition: transform .4s ease, box-shadow .4s ease; }
   .value-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -15px rgba(33,26,21,.2); }
   .value-icon { font-size: 38px; margin-bottom: 18px; }
   .value-card h3 { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--char); margin-bottom: 12px; }
@@ -269,49 +116,27 @@
 
   /* ---------- MENUS ---------- */
   .menus { background: #fff; position: relative; }
-  .menu-tabs {
-    display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
-    margin-bottom: 60px; border-bottom: 1px solid rgba(33,26,21,.08);
-  }
-  .menu-tab {
-    background: none; border: none; font-family: var(--sans);
-    font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--muted); padding: 18px 24px; cursor: pointer; position: relative;
-    transition: color .3s ease;
-  }
-  .menu-tab::after {
-    content: ''; position: absolute; left: 50%; bottom: -1px;
-    width: 0; height: 2px; background: var(--gold);
-    transition: all .3s ease; transform: translateX(-50%);
-  }
+  .menu-tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 60px; border-bottom: 1px solid rgba(33,26,21,.08); }
+  .menu-tab { background: none; border: none; font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); padding: 18px 24px; cursor: pointer; position: relative; transition: color .3s ease; }
+  .menu-tab::after { content: ''; position: absolute; left: 50%; bottom: -1px; width: 0; height: 2px; background: var(--red); transition: all .3s ease; transform: translateX(-50%); }
   .menu-tab:hover { color: var(--char); }
   .menu-tab.active { color: var(--char); }
   .menu-tab.active::after { width: 60%; }
-
   .menu-panel { display: none; animation: fadeIn .6s ease; }
   .menu-panel.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
   .menu-section { margin-bottom: 60px; }
-  .menu-section-title {
-    font-family: var(--serif); font-size: 32px; font-weight: 500;
-    color: var(--char); margin-bottom: 8px;
-    display: flex; align-items: baseline; gap: 18px;
-  }
-  .menu-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+  .menu-section-title { font-family: var(--serif); font-size: 32px; font-weight: 500; color: var(--char); margin-bottom: 8px; display: flex; align-items: baseline; gap: 18px; }
+  .menu-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--red) 0%, transparent 100%); }
   .menu-section-sub { color: var(--muted); font-style: italic; margin-bottom: 30px; font-family: var(--serif); font-size: 17px; }
   .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 60px; }
   .menu-item { padding: 18px 0; border-bottom: 1px dashed rgba(33,26,21,.12); }
   .menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 6px; }
   .menu-item-name { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--char); line-height: 1.3; }
-  .menu-item-name .tag {
-    font-family: var(--sans); font-size: 10px; font-weight: 700;
-    background: var(--gold); color: var(--char); padding: 2px 7px; margin-left: 8px;
-    letter-spacing: 1px; vertical-align: middle; border-radius: 2px;
-  }
-  .menu-item-name .tag.spicy { background: var(--ember); color: #fff; }
+  .menu-item-name .tag { font-family: var(--sans); font-size: 10px; font-weight: 700; background: var(--gold); color: var(--char); padding: 2px 7px; margin-left: 8px; letter-spacing: 1px; vertical-align: middle; border-radius: 2px; }
+  .menu-item-name .tag.spicy { background: var(--red); color: #fff; }
   .menu-item-name .tag.veg { background: #6ba368; color: #fff; }
-  .menu-item-price { font-family: var(--serif); font-size: 19px; font-weight: 500; color: var(--gold); white-space: nowrap; letter-spacing: 1px; }
+  .menu-item-price { font-family: var(--serif); font-size: 19px; font-weight: 500; color: var(--red); white-space: nowrap; letter-spacing: 1px; }
   .menu-item-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
   /* ---------- POPULAR DISHES ---------- */
@@ -320,10 +145,7 @@
   .dish { position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; }
   .dish img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
   .dish:hover img { transform: scale(1.1); }
-  .dish::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 30%, rgba(21,15,11,.92) 100%); z-index: 1;
-  }
+  .dish::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(21,15,11,.92) 100%); z-index: 1; }
   .dish-info { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; color: #fff; padding: 32px 28px; transform: translateY(40px); transition: transform .5s ease; }
   .dish:hover .dish-info { transform: translateY(0); }
   .dish-tag { font-family: var(--script); color: var(--gold-soft); font-size: 22px; display: block; margin-bottom: 4px; }
@@ -331,19 +153,41 @@
   .dish-desc { font-size: 14px; opacity: 0; max-height: 0; transition: all .5s ease; color: rgba(255,255,255,.85); }
   .dish:hover .dish-desc { opacity: 1; max-height: 120px; }
 
+  /* ---------- GALLERY SLIDER ---------- */
+  .gallery-sec { background: #fff; }
+  .slider { position: relative; max-width: 1000px; margin: 0 auto; overflow: hidden; border-radius: 2px; box-shadow: 0 30px 60px -25px rgba(33,26,21,.45); }
+  .slides { display: flex; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
+  .slide { min-width: 100%; position: relative; aspect-ratio: 16/9; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; }
+  .slide .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 50px 28px 24px; color: #fff; font-family: var(--serif); font-size: 26px; background: linear-gradient(transparent, rgba(21,15,11,.85)); }
+  .s-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: none; border-radius: 50%; background: var(--red); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; display: grid; place-items: center; transition: .3s; z-index: 3; }
+  .s-arrow:hover { background: var(--red-deep); }
+  .s-arrow.prev { left: 18px; } .s-arrow.next { right: 18px; }
+  .dots { display: flex; gap: 10px; justify-content: center; margin-top: 24px; }
+  .dots button { width: 11px; height: 11px; border-radius: 50%; border: none; background: rgba(33,26,21,.2); cursor: pointer; transition: .3s; padding: 0; }
+  .dots button.active { background: var(--red); transform: scale(1.25); }
+  .gallery-note { text-align: center; margin-top: 22px; font-size: 14px; color: var(--muted); }
+  .gallery-note a { color: var(--red); font-weight: 600; }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews { background: var(--cream-warm); }
+  .rating-head { display: flex; align-items: center; gap: 28px; justify-content: center; margin-bottom: 52px; flex-wrap: wrap; }
+  .rating-score { font-family: var(--serif); font-size: 92px; font-weight: 600; color: var(--char); line-height: .85; }
+  .rating-stars { color: var(--gold); font-size: 26px; letter-spacing: 4px; }
+  .rating-head p { color: var(--muted); font-size: 16px; margin-top: 6px; }
+  .rating-head strong { color: var(--char); }
+  .rating-link { display: inline-block; margin-top: 8px; color: var(--red); font-weight: 600; font-size: 14px; letter-spacing: .5px; }
+  .rating-link:hover { color: var(--red-deep); }
+  .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .review { background: #fff; padding: 32px 28px; border-left: 3px solid var(--red); box-shadow: 0 18px 40px -22px rgba(33,26,21,.3); }
+  .review .stars { color: var(--gold); letter-spacing: 3px; margin-bottom: 12px; font-size: 15px; }
+  .review p { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--char); line-height: 1.5; margin-bottom: 16px; }
+  .review cite { font-style: normal; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+
   /* ---------- QUOTE ---------- */
-  .quote {
-    background:
-      linear-gradient(135deg, rgba(21,15,11,.86), rgba(168,51,29,.72)),
-      url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=1920&q=80') center/cover fixed;
-    color: #fff; text-align: center; padding: 140px 24px;
-  }
-  .quote blockquote {
-    font-family: var(--serif); font-size: clamp(24px, 3vw, 38px);
-    font-style: italic; font-weight: 400; line-height: 1.4;
-    max-width: 950px; margin: 0 auto 30px;
-  }
-  .quote blockquote::before { content: '"'; font-size: 80px; color: var(--gold); display: block; line-height: 0; margin-bottom: 30px; }
+  .quote { background: linear-gradient(135deg, rgba(21,15,11,.86), rgba(181,40,29,.74)), url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=1920&q=80') center/cover fixed; color: #fff; text-align: center; padding: 140px 24px; }
+  .quote blockquote { font-family: var(--serif); font-size: clamp(24px, 3vw, 38px); font-style: italic; font-weight: 400; line-height: 1.4; max-width: 950px; margin: 0 auto 30px; }
+  .quote blockquote::before { content: '\201C'; font-size: 80px; color: var(--gold); display: block; line-height: 0; margin-bottom: 30px; }
   .quote cite { font-family: var(--sans); font-size: 13px; font-style: normal; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-soft); }
 
   /* ---------- VISIT ---------- */
@@ -358,36 +202,34 @@
   .hours-row strong { font-family: var(--serif); font-size: 19px; color: var(--gold-soft); font-weight: 500; }
   .hours-row span { color: rgba(247,241,230,.8); text-align: right; }
   .hours-title { font-family: var(--serif); font-size: 28px; color: #fff; margin-bottom: 20px; font-style: italic; }
-  .happy-hour-highlight { background: var(--gold); color: var(--char); padding: 22px 28px; margin-top: 30px; text-align: center; }
+  .happy-hour-highlight { background: var(--red); color: #fff; padding: 22px 28px; margin-top: 30px; text-align: center; }
   .happy-hour-highlight strong { font-family: var(--serif); font-size: 24px; display: block; margin-bottom: 4px; }
-  .happy-hour-highlight span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+  .happy-hour-highlight span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; opacity: .92; }
+  .map-embed { margin-top: 50px; border: 1px solid rgba(217,164,65,.25); }
+  .map-embed iframe { width: 100%; height: 380px; border: 0; display: block; }
 
-  /* ---------- WAYS / LOCATIONS ---------- */
+  /* ---------- WAYS ---------- */
   .locations { background: var(--cream); }
   .loc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 50px; }
   .loc { padding: 34px 26px; background: #fff; border-bottom: 2px solid transparent; transition: all .35s ease; cursor: pointer; }
-  .loc:hover { border-bottom-color: var(--gold); transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(33,26,21,.18); }
-  .loc.featured { background: var(--char); color: #fff; border-bottom-color: var(--gold); }
+  .loc:hover { border-bottom-color: var(--red); transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(33,26,21,.18); }
+  .loc.featured { background: var(--char); color: #fff; border-bottom-color: var(--red); }
   .loc.featured .loc-city { color: var(--gold-soft); }
   .loc.featured .loc-detail { color: rgba(247,241,230,.72); }
-  .loc-tag { font-family: var(--script); color: var(--gold); font-size: 20px; display: block; margin-bottom: 6px; }
+  .loc-tag { font-family: var(--script); color: var(--red); font-size: 20px; display: block; margin-bottom: 6px; }
   .loc-city { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--char); margin-bottom: 8px; }
   .loc-detail { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  /* ---------- CTA STRIP ---------- */
-  .cta-strip { background: var(--gold); color: var(--char); text-align: center; padding: 80px 24px; }
+  /* ---------- CTA ---------- */
+  .cta-strip { background: var(--red); color: #fff; text-align: center; padding: 80px 24px; }
   .cta-strip h2 { font-family: var(--serif); font-size: clamp(34px, 5vw, 56px); font-weight: 500; margin-bottom: 20px; font-style: italic; }
-  .cta-strip p { max-width: 600px; margin: 0 auto 30px; font-size: 17px; }
-  .cta-strip .btn { border-color: var(--char); background: var(--char); color: var(--gold-soft); }
-  .cta-strip .btn:hover { background: transparent; color: var(--char); }
+  .cta-strip p { max-width: 600px; margin: 0 auto 30px; font-size: 17px; opacity: .95; }
+  .cta-strip .btn { border-color: #fff; background: #fff; color: var(--red-deep); }
+  .cta-strip .btn:hover { background: transparent; color: #fff; }
 
   /* ---------- FOOTER ---------- */
   footer { background: var(--char-deep); color: rgba(247,241,230,.7); padding: 80px 24px 30px; }
-  .foot-grid {
-    max-width: 1200px; margin: 0 auto; display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 50px;
-    padding-bottom: 50px; border-bottom: 1px solid rgba(217,164,65,.15);
-  }
+  .foot-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 50px; border-bottom: 1px solid rgba(217,164,65,.15); }
   .foot-logo { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--cream); margin-bottom: 16px; }
   .foot-logo span { font-family: var(--script); color: var(--gold); font-size: 24px; font-weight: 500; }
   .foot p { font-size: 14px; line-height: 1.8; margin-bottom: 8px; }
@@ -403,7 +245,6 @@
   .reveal-delay-1 { transition-delay: .15s; }
   .reveal-delay-2 { transition-delay: .3s; }
   .reveal-delay-3 { transition-delay: .45s; }
-
   .fade-words .fw { display: inline-block; opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; margin-right: .25em; }
   .fade-words.in .fw { opacity: 1; transform: translateY(0); }
   .fade-words.in .fw:nth-child(1) { transition-delay: .1s; }
@@ -419,19 +260,14 @@
   @media (max-width: 960px) {
     .nav-links { display: none; }
     .nav-toggle { display: block; }
-    .nav-links.open {
-      display: flex; flex-direction: column;
-      position: absolute; top: 100%; left: 0; right: 0;
-      background: #fff; padding: 24px; gap: 18px;
-      border-top: 1px solid rgba(33,26,21,.08);
-    }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 24px; gap: 18px; border-top: 1px solid rgba(33,26,21,.08); }
     nav.scrolled .nav-links.open { background: var(--char); }
     section { padding: 70px 20px; }
     .story-grid, .visit-grid { grid-template-columns: 1fr; gap: 50px; }
-    .story-image::after { font-size: 120px; }
+    .story-image::after { font-size: 110px; }
     .values-grid { grid-template-columns: repeat(2, 1fr); }
     .menu-grid { grid-template-columns: 1fr; gap: 0; }
-    .dishes-grid { grid-template-columns: 1fr; }
+    .dishes-grid, .review-grid { grid-template-columns: 1fr; }
     .loc-grid { grid-template-columns: repeat(2, 1fr); }
     .foot-grid { grid-template-columns: 1fr 1fr; gap: 35px; }
     .hours-card { padding: 30px 22px; }
@@ -442,8 +278,8 @@
     .menu-tabs { gap: 0; }
     .menu-tab { padding: 14px 12px; font-size: 11px; letter-spacing: 1.5px; }
     .hero { min-height: 90vh; }
-    .logo { font-size: 22px; }
-    .logo img { width: 40px; height: 40px; }
+    .logo b { font-size: 21px; } .logo span { font-size: 18px; } .logo .brandmark { width: 40px; height: 40px; }
+    .rating-score { font-size: 70px; }
   }
 </style>
 </head>
@@ -451,22 +287,37 @@
 
 <!-- TOP STRIP -->
 <div class="top-strip">
-  <span>742 Grill Street, Riverdale, IL</span>
-  <span>(555) 555-0199</span>
-  <span>Flame-Grilled &middot; Authentic Gyros</span>
+  <span>5821 Evergreen Way, Everett, WA 98203</span>
+  <span>(425) 347-6037</span>
+  <span><span class="star">&#9733;</span> 4.7 &middot; 2,182 Google reviews</span>
 </div>
 
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#top" class="logo"><img src="assets/logo.svg" alt="Nick Jr's emblem" /><b>Nick Jr's</b> <span>Burgers &amp; Gyros</span></a>
+    <a href="#top" class="logo">
+      <svg class="brandmark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nick's Jr.">
+        <rect x="2" y="2" width="96" height="96" rx="24" fill="#e23b2e"/>
+        <rect x="7.5" y="7.5" width="85" height="85" rx="19" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
+        <path d="M22 46 C 24 27 76 27 78 46 Z" fill="#edc575"/>
+        <ellipse cx="39" cy="39" rx="2" ry="1.2" fill="#fff6e2"/><ellipse cx="61" cy="39" rx="2" ry="1.2" fill="#fff6e2"/><ellipse cx="50" cy="34" rx="2" ry="1.2" fill="#fff6e2"/>
+        <circle cx="43" cy="42" r="4.6" fill="#fffaf0"/><circle cx="57" cy="42" r="4.6" fill="#fffaf0"/>
+        <circle cx="43.9" cy="42.7" r="2.1" fill="#3a2a1e"/><circle cx="57.9" cy="42.7" r="2.1" fill="#3a2a1e"/>
+        <path d="M21 46 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 q4.8 5 9.6 1 L79 52 L21 52 Z" fill="#7cb342"/>
+        <path d="M22 51 L78 51 L78 55 q-7 5 -14 1 q-7 5 -14 1 q-7 5 -14 1 q-7 5 -14 1 Z" fill="#f6b73c"/>
+        <rect x="22" y="55" width="56" height="9" rx="4.5" fill="#6e3b22"/>
+        <path d="M25 64 L75 64 C 79 64 79 71 74 72 C 60 76 40 76 26 72 C 21 71 21 64 25 64 Z" fill="#edc575"/>
+      </svg>
+      <b>Nick's Jr.</b> <span>Burgers &amp; Gyros</span>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#story">Story</a></li>
       <li><a href="#menus">Menu</a></li>
       <li><a href="#dishes">Signature</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
       <li><a href="#visit">Visit</a></li>
-      <li><a href="#ways">Order</a></li>
-      <li><a href="#visit" class="btn-reserve">Reserve</a></li>
+      <li><a href="#visit" class="btn-reserve">Order</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
   </div>
@@ -475,7 +326,7 @@
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-inner">
-    <p class="hero-eyebrow">Riverdale &middot; Since 1998</p>
+    <p class="hero-eyebrow">Everett, Washington</p>
     <h1>
       Bold. Flame-Grilled.<br/>
       <em><span class="rotator" id="rotator">
@@ -483,14 +334,14 @@
         <span class="word active">Unforgettable.</span>
         <span class="word">Crave-worthy.</span>
         <span class="word">Hand-carved.</span>
-        <span class="word">Authentic.</span>
+        <span class="word">Imaginative.</span>
         <span class="word">Yours.</span>
       </span></em>
     </h1>
-    <p class="hero-sub">A neighborhood tradition for over 25 years &mdash; hand-pressed smashburgers, spit-roasted gyros, and made-from-scratch sauces.</p>
+    <p class="hero-sub">Imaginative flame-grilled burgers, hand-carved gyros &amp; sides &mdash; a colorful Everett counter-serve with sunny outdoor seating.</p>
     <div class="hero-cta">
-      <a href="#visit" class="btn primary">Reserve a Table</a>
-      <a href="#menus" class="btn">Explore the Menu</a>
+      <a href="#menus" class="btn primary">Explore the Menu</a>
+      <a href="#visit" class="btn">Find &amp; Visit Us</a>
     </div>
   </div>
   <div class="scroll-hint">Scroll &nbsp; &darr;</div>
@@ -502,14 +353,14 @@
     <div class="story-grid">
       <div class="story-image reveal">
         <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=1200&q=80" alt="Gyro carved fresh from the spit" />
-        <div class="story-badge">Established 1998</div>
+        <div class="story-badge">4.7&#9733; on Google</div>
       </div>
       <div class="story-text">
         <p class="eyebrow reveal">Our story</p>
-        <h2 class="section-title reveal reveal-delay-1">A neighborhood <em>tradition</em>.</h2>
-        <p class="lead reveal reveal-delay-2">It began in 1998 when Nick Sr. opened a corner grill with a single flat-top and his mother's gyro recipe carried over from Thessaloniki &mdash; with one rule: never cut a corner you'd taste on the plate.</p>
-        <p class="reveal reveal-delay-3">Today his son carries that rule forward. We still press every patty by hand, stack the gyro spit each morning, and make the tzatziki and Nick Sauce from scratch. Fresh-ground beef, produce delivered daily, and bread baked locally &mdash; never frozen, never rushed.</p>
-        <p class="reveal reveal-delay-3">Pull up to the counter, gather the table for a birthday, or grab a bag to go. You'll leave already planning your next visit.</p>
+        <h2 class="section-title reveal reveal-delay-1">An Everett <em>original</em>.</h2>
+        <p class="lead reveal reveal-delay-2">Imaginative burgers, gyros &amp; sides, prepared fresh in a colorful, counter-serve kitchen on Evergreen Way &mdash; with sunny outdoor seating and a line that says it all.</p>
+        <p class="reveal reveal-delay-3">From overstuffed gyros to smashed-to-order burgers and loaded sides, everything is made to order. Pull up to the counter, grab a bag to go, or take a seat out on the patio when the sun's out.</p>
+        <p class="reveal reveal-delay-3">More than two thousand reviews and a 4.7-star average later, we're still grilling like the whole neighborhood is watching &mdash; because it is.</p>
       </div>
     </div>
   </div>
@@ -518,8 +369,8 @@
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>Smashed Burgers <span class="dot">&#9670;</span> Hand-Carved Gyros <span class="dot">&#9670;</span> House Tzatziki <span class="dot">&#9670;</span> Hand-Cut Fries <span class="dot">&#9670;</span> Baklava Shakes <span class="dot">&#9670;</span> Made From Scratch <span class="dot">&#9670;</span></span>
-    <span>Smashed Burgers <span class="dot">&#9670;</span> Hand-Carved Gyros <span class="dot">&#9670;</span> House Tzatziki <span class="dot">&#9670;</span> Hand-Cut Fries <span class="dot">&#9670;</span> Baklava Shakes <span class="dot">&#9670;</span> Made From Scratch <span class="dot">&#9670;</span></span>
+    <span>Smashed Burgers <span class="dot">&#9670;</span> Hand-Carved Gyros <span class="dot">&#9670;</span> Loaded Sides <span class="dot">&#9670;</span> Counter Serve <span class="dot">&#9670;</span> Outdoor Seating <span class="dot">&#9670;</span> Made To Order <span class="dot">&#9670;</span></span>
+    <span>Smashed Burgers <span class="dot">&#9670;</span> Hand-Carved Gyros <span class="dot">&#9670;</span> Loaded Sides <span class="dot">&#9670;</span> Counter Serve <span class="dot">&#9670;</span> Outdoor Seating <span class="dot">&#9670;</span> Made To Order <span class="dot">&#9670;</span></span>
   </div>
 </div>
 
@@ -528,28 +379,12 @@
   <div class="container section-head-center">
     <p class="eyebrow reveal">What sets us apart</p>
     <h2 class="section-title reveal reveal-delay-1">Two kitchens, <em>one obsession</em> with flavor.</h2>
-    <p class="section-intro reveal reveal-delay-2">From the American grill to the Mediterranean spit, four pillars guide every plate we send out.</p>
+    <p class="section-intro reveal reveal-delay-2">From the American grill to the Mediterranean spit, a few things never change.</p>
     <div class="values-grid">
-      <div class="value-card reveal">
-        <div class="value-icon">&#128293;</div>
-        <h3>Flame-Grilled</h3>
-        <p>Hand-pressed patties seared on a screaming-hot flat-top &mdash; crisp edges, never frozen.</p>
-      </div>
-      <div class="value-card reveal reveal-delay-1">
-        <div class="value-icon">&#129481;</div>
-        <h3>Authentic Gyros</h3>
-        <p>Seasoned lamb &amp; beef slow-roasted on a vertical spit and carved fresh into warm pita.</p>
-      </div>
-      <div class="value-card reveal reveal-delay-2">
-        <div class="value-icon">&#129362;</div>
-        <h3>Made From Scratch</h3>
-        <p>Tzatziki, Nick Sauce, hand-cut fries and hand-spun shakes &mdash; all made in-house, daily.</p>
-      </div>
-      <div class="value-card reveal reveal-delay-3">
-        <div class="value-icon">&#127968;</div>
-        <h3>Family-Owned</h3>
-        <p>Two generations, one corner of the neighborhood, and a quarter-century of regulars.</p>
-      </div>
+      <div class="value-card reveal"><div class="value-icon">&#128293;</div><h3>Flame-Grilled</h3><p>Hand-pressed patties seared on a screaming-hot flat-top &mdash; crisp edges, made to order.</p></div>
+      <div class="value-card reveal reveal-delay-1"><div class="value-icon">&#129481;</div><h3>Hand-Carved Gyros</h3><p>Seasoned meat slow-roasted on a vertical spit and carved fresh into warm pita.</p></div>
+      <div class="value-card reveal reveal-delay-2"><div class="value-icon">&#127839;</div><h3>Loaded Sides</h3><p>Hand-cut fries, gyro fries, onion rings and hand-spun shakes &mdash; the full lineup.</p></div>
+      <div class="value-card reveal reveal-delay-3"><div class="value-icon">&#9728;</div><h3>Counter &amp; Patio</h3><p>Quick, friendly counter service with colorful outdoor seating when the sun's out.</p></div>
     </div>
   </div>
 </section>
@@ -560,7 +395,7 @@
     <div class="section-head-center">
       <p class="eyebrow reveal">The menu</p>
       <h2 class="section-title reveal reveal-delay-1">Where the <em>grill</em> meets the table.</h2>
-      <p class="section-intro reveal reveal-delay-2">Flame-grilled burgers, hand-carved gyros, and everything in between &mdash; choose your craving.</p>
+      <p class="section-intro reveal reveal-delay-2">Flame-grilled burgers, hand-carved gyros, and everything in between &mdash; about $10&ndash;20 per person.</p>
     </div>
 
     <div class="menu-tabs" role="tablist">
@@ -571,23 +406,21 @@
       <button class="menu-tab" data-tab="kids">Kids</button>
     </div>
 
-    <!-- BURGERS -->
     <div class="menu-panel active" id="panel-burgers">
       <div class="menu-section">
         <h3 class="menu-section-title">Flame-Grilled Burgers</h3>
-        <p class="menu-section-sub">Never frozen &middot; 100% fresh-ground beef &middot; toasted brioche.</p>
+        <p class="menu-section-sub">Made to order &middot; fresh-ground beef &middot; toasted bun.</p>
         <div class="menu-grid">
           <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">The Double Smash <span class="tag">Fav</span></div><div class="menu-item-price">$11.95</div></div><p class="menu-item-desc">Two hand-pressed patties, double American, house pickles, caramelized onion &amp; Nick Sauce.</p></div>
           <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Classic Single</div><div class="menu-item-price">$8.95</div></div><p class="menu-item-desc">Quarter-pound smash patty, American, lettuce, tomato, onion &amp; pickle.</p></div>
-          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">The Firecracker <span class="tag spicy">Spicy</span></div><div class="menu-item-price">$12.50</div></div><p class="menu-item-desc">Double patty, pepper jack, jalapeños, crispy onions &amp; chipotle aioli.</p></div>
-          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Bacon &amp; Bourbon</div><div class="menu-item-price">$13.25</div></div><p class="menu-item-desc">Smoked bacon, cheddar, frizzled onions &amp; bourbon-glaze BBQ.</p></div>
-          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Mushroom Swiss</div><div class="menu-item-price">$12.25</div></div><p class="menu-item-desc">Sautéed cremini mushrooms, melted Swiss &amp; garlic aioli.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">The Firecracker <span class="tag spicy">Spicy</span></div><div class="menu-item-price">$12.50</div></div><p class="menu-item-desc">Double patty, pepper jack, jalape&ntilde;os, crispy onions &amp; chipotle aioli.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Bacon &amp; BBQ</div><div class="menu-item-price">$13.25</div></div><p class="menu-item-desc">Smoked bacon, cheddar, frizzled onions &amp; tangy BBQ.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Mushroom Swiss</div><div class="menu-item-price">$12.25</div></div><p class="menu-item-desc">Saut&eacute;ed mushrooms, melted Swiss &amp; garlic aioli.</p></div>
           <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Garden Veggie Smash <span class="tag veg">Veg</span></div><div class="menu-item-price">$11.50</div></div><p class="menu-item-desc">House black-bean patty, pepper jack, avocado, lettuce &amp; chipotle aioli.</p></div>
         </div>
       </div>
     </div>
 
-    <!-- GYROS -->
     <div class="menu-panel" id="panel-gyros">
       <div class="menu-section">
         <h3 class="menu-section-title">Gyros &amp; Wraps</h3>
@@ -603,7 +436,6 @@
       </div>
     </div>
 
-    <!-- SIDES & SALADS -->
     <div class="menu-panel" id="panel-sides">
       <div class="menu-section">
         <h3 class="menu-section-title">Sides</h3>
@@ -626,28 +458,26 @@
       </div>
     </div>
 
-    <!-- DRINKS -->
     <div class="menu-panel" id="panel-drinks">
       <div class="menu-section">
         <h3 class="menu-section-title">Hand-Spun Shakes</h3>
         <p class="menu-section-sub">Real ice cream, spun to order.</p>
         <div class="menu-grid">
           <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Classic Milkshake <span class="tag">Fav</span></div><div class="menu-item-price">$5.95</div></div><p class="menu-item-desc">Vanilla, chocolate, strawberry or salted caramel.</p></div>
-          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Baklava Shake</div><div class="menu-item-price">$6.50</div></div><p class="menu-item-desc">Honey, walnut &amp; cinnamon &mdash; a Nick Jr's original.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Baklava Shake</div><div class="menu-item-price">$6.50</div></div><p class="menu-item-desc">Honey, walnut &amp; cinnamon &mdash; a Nick's Jr. original.</p></div>
         </div>
       </div>
       <div class="menu-section">
         <h3 class="menu-section-title">Drinks</h3>
         <div class="menu-grid">
           <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Fresh Lemonade</div><div class="menu-item-price">$3.50</div></div><p class="menu-item-desc">Classic or strawberry, squeezed daily.</p></div>
-          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Greek Frappé</div><div class="menu-item-price">$4.25</div></div><p class="menu-item-desc">Iced foamed coffee, sweet or regular.</p></div>
+          <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Greek Frapp&eacute;</div><div class="menu-item-price">$4.25</div></div><p class="menu-item-desc">Iced foamed coffee, sweet or regular.</p></div>
           <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Fountain Soda</div><div class="menu-item-price">$2.95</div></div><p class="menu-item-desc">Free refills, dine-in.</p></div>
           <div class="menu-item"><div class="menu-item-head"><div class="menu-item-name">Bottled Water</div><div class="menu-item-price">$1.95</div></div><p class="menu-item-desc">Still or sparkling.</p></div>
         </div>
       </div>
     </div>
 
-    <!-- KIDS -->
     <div class="menu-panel" id="panel-kids">
       <div class="menu-section">
         <h3 class="menu-section-title">Lil' Grillers (12 &amp; Under)</h3>
@@ -673,28 +503,63 @@
     <div class="dishes-grid">
       <div class="dish reveal">
         <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=900&q=80" alt="The Double Smash burger" />
-        <div class="dish-info">
-          <span class="dish-tag">Customer favorite</span>
-          <div class="dish-name">The Double Smash</div>
-          <p class="dish-desc">Two hand-pressed patties, double American, house pickles, caramelized onion &amp; secret Nick Sauce.</p>
-        </div>
+        <div class="dish-info"><span class="dish-tag">Customer favorite</span><div class="dish-name">The Double Smash</div><p class="dish-desc">Two hand-pressed patties, double American, house pickles, caramelized onion &amp; secret Nick Sauce.</p></div>
       </div>
       <div class="dish reveal reveal-delay-1">
         <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=900&q=80" alt="Classic Greek Gyro" />
-        <div class="dish-info">
-          <span class="dish-tag">A family recipe</span>
-          <div class="dish-name">Classic Greek Gyro</div>
-          <p class="dish-desc">Spit-roasted lamb &amp; beef, tomato, red onion, lettuce &amp; house tzatziki in warm pita.</p>
-        </div>
+        <div class="dish-info"><span class="dish-tag">Hand-carved</span><div class="dish-name">Classic Greek Gyro</div><p class="dish-desc">Spit-roasted lamb &amp; beef, tomato, red onion, lettuce &amp; house tzatziki in warm pita.</p></div>
       </div>
       <div class="dish reveal reveal-delay-2">
         <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=900&q=80" alt="Loaded gyro fries" />
-        <div class="dish-info">
-          <span class="dish-tag">Crowd-pleaser</span>
-          <div class="dish-name">Loaded Gyro Fries</div>
-          <p class="dish-desc">Hand-cut fries piled with carved gyro, feta, tomato, onion &amp; a generous tzatziki drizzle.</p>
-        </div>
+        <div class="dish-info"><span class="dish-tag">Crowd-pleaser</span><div class="dish-name">Loaded Gyro Fries</div><p class="dish-desc">Hand-cut fries piled with carved gyro, feta, tomato, onion &amp; a generous tzatziki drizzle.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SLIDER -->
+<section class="gallery-sec" id="gallery">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal">A taste of Nick's Jr.</p>
+      <h2 class="section-title reveal reveal-delay-1">Straight from the <em>grill</em>.</h2>
+    </div>
+    <div class="slider reveal" id="slider">
+      <div class="slides">
+        <div class="slide"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1400&q=80" alt="Smashed burger" /><div class="cap">Smashed to order</div></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=1400&q=80" alt="Greek gyro" /><div class="cap">Hand-carved gyros</div></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80" alt="Patio &amp; outdoor seating" /><div class="cap">Counter serve &amp; sunny patio &mdash; Everett</div></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=1400&q=80" alt="Loaded gyro fries" /><div class="cap">Loaded gyro fries</div></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=1400&q=80" alt="Hand-spun shakes" /><div class="cap">Hand-spun shakes</div></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1400&q=80" alt="Fresh Greek salad" /><div class="cap">Fresh Greek salad</div></div>
+      </div>
+      <button class="s-arrow prev" id="sPrev" aria-label="Previous">&#8249;</button>
+      <button class="s-arrow next" id="sNext" aria-label="Next">&#8250;</button>
+    </div>
+    <div class="dots" id="sDots"></div>
+    <p class="gallery-note">See real photos &amp; the latest from guests on <a href="https://www.google.com/maps/search/?api=1&query=Nick%27s%20Jr%20Burgers%20%26%20Gyros%205821%20Evergreen%20Way%20Everett%20WA%2098203" target="_blank" rel="noopener">Google Maps &rarr;</a></p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal">Loved in Everett</p>
+      <h2 class="section-title reveal reveal-delay-1">What our <em>guests</em> say.</h2>
+    </div>
+    <div class="rating-head reveal">
+      <div class="rating-score">4.7</div>
+      <div>
+        <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Based on <strong>2,182</strong> Google reviews &middot; $10&ndash;20 per person</p>
+        <a class="rating-link" href="https://www.google.com/maps/search/?api=1&query=Nick%27s%20Jr%20Burgers%20%26%20Gyros%205821%20Evergreen%20Way%20Everett%20WA%2098203" target="_blank" rel="noopener">Read all reviews on Google &rarr;</a>
+      </div>
+    </div>
+    <div class="review-grid">
+      <div class="review reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Imaginative burgers and the gyros are stacked. Counter service is quick and the patio is perfect on a sunny day."</p><cite>Google review</cite></div>
+      <div class="review reveal reveal-delay-1"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Best burger-and-gyro combo in Everett. Generous portions, fair prices, and the friendliest staff around."</p><cite>Google review</cite></div>
+      <div class="review reveal reveal-delay-2"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"We keep coming back. The fries and shakes are a must. A 4.7 across 2,000+ reviews is no accident."</p><cite>Google review</cite></div>
     </div>
   </div>
 </section>
@@ -703,17 +568,10 @@
 <section class="quote">
   <div class="container">
     <blockquote class="fade-words" id="gmQuote">
-      <span class="fw">Pull</span>
-      <span class="fw">up</span>
-      <span class="fw">a</span>
-      <span class="fw">seat</span>
-      <span class="fw">&mdash;</span>
-      <span class="fw">you're</span>
-      <span class="fw">family</span>
-      <span class="fw">here.</span>
+      <span class="fw">Pull</span><span class="fw">up</span><span class="fw">a</span><span class="fw">seat</span><span class="fw">&mdash;</span><span class="fw">you're</span><span class="fw">family</span><span class="fw">here.</span>
     </blockquote>
-    <p style="font-family:var(--serif);font-style:italic;font-size:20px;max-width:800px;margin:0 auto 30px;opacity:.9;">Flame-grilled burgers, hand-carved gyros, made-from-scratch sauces, and warm, unpretentious service that'll make you want to come back for more.</p>
-    <cite>&mdash; Nick Jr., Owner</cite>
+    <p style="font-family:var(--serif);font-style:italic;font-size:20px;max-width:800px;margin:0 auto 30px;opacity:.9;">Imaginative flame-grilled burgers, hand-carved gyros, loaded sides, and warm, unpretentious counter service that keeps Everett coming back.</p>
+    <cite>&mdash; The Nick's Jr. Crew &middot; Everett, WA</cite>
   </div>
 </section>
 
@@ -723,59 +581,46 @@
     <div class="visit-grid">
       <div class="visit-info">
         <p class="eyebrow reveal" style="color:var(--gold-soft);">Plan your visit</p>
-        <h2 class="section-title reveal reveal-delay-1">Find us on <em>Grill Street</em>.</h2>
-        <p class="reveal reveal-delay-2">742 Grill Street<br/>Riverdale, IL 60827</p>
-        <p class="reveal reveal-delay-2">Phone &middot; (555) 555-0199<br/>Email &middot; hello@nickjrsgrill.com</p>
-        <p class="reveal reveal-delay-3" style="margin-top:30px;">Right downtown with free on-site parking and easy street access. Look for the red-and-gold sign &mdash; you can't miss it.</p>
+        <h2 class="section-title reveal reveal-delay-1">Find us on <em>Evergreen Way</em>.</h2>
+        <p class="reveal reveal-delay-2">5821 Evergreen Way<br/>Everett, WA 98203</p>
+        <p class="reveal reveal-delay-2">Phone &middot; (425) 347-6037</p>
+        <p class="reveal reveal-delay-3" style="margin-top:30px;">A colorful counter-serve spot with outdoor seating. Dine-in &amp; takeout, LGBTQ+ friendly, and easy parking right out front.</p>
         <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
-          <a href="#ways" class="btn primary">Reserve a Table</a>
-          <a href="#ways" class="btn" style="color:#fff;">Order Online</a>
+          <a href="tel:+14253476037" class="btn primary">Call to Order</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Nick%27s%20Jr%20Burgers%20%26%20Gyros%205821%20Evergreen%20Way%20Everett%20WA%2098203" target="_blank" rel="noopener" class="btn" style="color:#fff;">Get Directions</a>
         </div>
       </div>
       <div class="hours-card reveal reveal-delay-2">
-        <h3 class="hours-title">We're open every day.</h3>
-        <div class="hours-row"><strong>Mon &ndash; Thu</strong><span>11:00am &ndash; 9:00pm</span></div>
-        <div class="hours-row"><strong>Fri &ndash; Sat</strong><span>11:00am &ndash; 11:00pm</span></div>
-        <div class="hours-row"><strong>Sunday</strong><span>12:00pm &ndash; 8:00pm</span></div>
-        <div class="hours-row"><strong>Kitchen</strong><span>Until 30 min before close</span></div>
+        <h3 class="hours-title">Open every day.</h3>
+        <div class="hours-row"><strong>Mon &ndash; Fri</strong><span>11:00am &ndash; 8:30pm</span></div>
+        <div class="hours-row"><strong>Sat &ndash; Sun</strong><span>11:00am &ndash; 8:30pm</span></div>
+        <div class="hours-row"><strong>Service</strong><span>Dine-In &middot; Takeout</span></div>
+        <div class="hours-row"><strong>Seating</strong><span>Counter &amp; outdoor patio</span></div>
         <div class="happy-hour-highlight">
-          <strong>Lunch Special 11a&ndash;2p</strong>
-          <span>Burger or gyro + fries + drink &middot; $9.95</span>
+          <strong>$10&ndash;20 per person</strong>
+          <span>Counter serve &middot; Outdoor seating &middot; LGBTQ+ friendly</span>
         </div>
       </div>
+    </div>
+    <div class="map-embed reveal">
+      <iframe title="Nick's Jr Burgers &amp; Gyros on Google Maps" src="https://www.google.com/maps?q=Nick%27s%20Jr%20Burgers%20%26%20Gyros%2C%205821%20Evergreen%20Way%2C%20Everett%2C%20WA%2098203&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
-<!-- WAYS TO ENJOY -->
+<!-- WAYS -->
 <section class="locations" id="ways">
   <div class="container">
     <div class="section-head-center">
       <p class="eyebrow reveal">Order your way</p>
       <h2 class="section-title reveal reveal-delay-1">However you're <em>hungry</em>.</h2>
-      <p class="section-intro reveal reveal-delay-2">Dine in, grab it to go, or let us cater your next gathering.</p>
+      <p class="section-intro reveal reveal-delay-2">Dine in at the counter, grab it to go, or let us cater your next gathering.</p>
     </div>
     <div class="loc-grid">
-      <div class="loc featured reveal">
-        <span class="loc-tag">Come on in</span>
-        <div class="loc-city">Dine In</div>
-        <div class="loc-detail">Counter seating &amp; booths<br/>742 Grill Street</div>
-      </div>
-      <div class="loc reveal reveal-delay-1">
-        <span class="loc-tag">Call ahead</span>
-        <div class="loc-city">Take Out</div>
-        <div class="loc-detail">Hot &amp; ready for pickup<br/>(555) 555-0199</div>
-      </div>
-      <div class="loc reveal reveal-delay-2">
-        <span class="loc-tag">To your door</span>
-        <div class="loc-city">Delivery</div>
-        <div class="loc-detail">Order on your favorite app</div>
-      </div>
-      <div class="loc reveal reveal-delay-3" style="background:linear-gradient(135deg,var(--gold) 0%,var(--gold-soft) 100%);">
-        <span class="loc-tag" style="color:var(--char);">For your event</span>
-        <div class="loc-city" style="color:var(--char);">Catering</div>
-        <div class="loc-detail" style="color:var(--char);opacity:.85;">Burger bars &amp; gyro platters<br/>Groups of 15&ndash;300</div>
-      </div>
+      <div class="loc featured reveal"><span class="loc-tag">Come on in</span><div class="loc-city">Dine In</div><div class="loc-detail">Counter seating &amp; patio<br/>5821 Evergreen Way</div></div>
+      <div class="loc reveal reveal-delay-1"><span class="loc-tag">Call ahead</span><div class="loc-city">Take Out</div><div class="loc-detail">Hot &amp; ready for pickup<br/>(425) 347-6037</div></div>
+      <div class="loc reveal reveal-delay-2"><span class="loc-tag">To your door</span><div class="loc-city">Delivery</div><div class="loc-detail">Order on your favorite app</div></div>
+      <div class="loc reveal reveal-delay-3" style="background:linear-gradient(135deg,var(--red) 0%,#f0664f 100%);"><span class="loc-tag" style="color:#fff;">For your event</span><div class="loc-city" style="color:#fff;">Catering</div><div class="loc-detail" style="color:#fff;opacity:.9;">Burger bars &amp; gyro platters<br/>Ask us for a quote</div></div>
     </div>
   </div>
 </section>
@@ -783,9 +628,9 @@
 <!-- CTA -->
 <section class="cta-strip">
   <div class="container">
-    <h2>Catering for your next event.</h2>
-    <p>Build-your-own burger bars, carved gyro platters, fresh salads &amp; hand-spun shakes. We bring the grill to you.</p>
-    <a href="#visit" class="btn">Plan Your Catering</a>
+    <h2>Hungry? We're firing up the grill.</h2>
+    <p>Stop by the counter on Evergreen Way, call ahead for pickup, or grab a seat on the patio. See you soon.</p>
+    <a href="tel:+14253476037" class="btn">Call (425) 347-6037</a>
   </div>
 </section>
 
@@ -793,93 +638,104 @@
 <footer>
   <div class="foot-grid">
     <div class="foot">
-      <div class="foot-logo">Nick Jr's <span>Burgers &amp; Gyros</span></div>
-      <p>742 Grill Street<br/>Riverdale, IL 60827</p>
-      <p>(555) 555-0199<br/>hello@nickjrsgrill.com</p>
-      <p style="margin-top:18px;font-family:var(--script);font-size:22px;color:var(--gold-soft);">Flame-grilled since 1998.</p>
+      <div class="foot-logo">Nick's Jr. <span>Burgers &amp; Gyros</span></div>
+      <p>5821 Evergreen Way<br/>Everett, WA 98203</p>
+      <p>(425) 347-6037</p>
+      <p style="margin-top:18px;font-family:var(--script);font-size:22px;color:var(--gold-soft);">Imaginative burgers &amp; gyros.</p>
     </div>
     <div class="foot">
       <h4>Menu</h4>
-      <ul>
-        <li><a href="#menus">Burgers</a></li>
-        <li><a href="#menus">Gyros &amp; Wraps</a></li>
-        <li><a href="#menus">Sides &amp; Salads</a></li>
-        <li><a href="#menus">Shakes &amp; Drinks</a></li>
-        <li><a href="#menus">Kids</a></li>
-      </ul>
+      <ul><li><a href="#menus">Burgers</a></li><li><a href="#menus">Gyros &amp; Wraps</a></li><li><a href="#menus">Sides &amp; Salads</a></li><li><a href="#menus">Shakes &amp; Drinks</a></li><li><a href="#menus">Kids</a></li></ul>
     </div>
     <div class="foot">
       <h4>Visit</h4>
-      <ul>
-        <li><a href="#visit">Reservations</a></li>
-        <li><a href="#ways">Order Online</a></li>
-        <li><a href="#ways">Take Out</a></li>
-        <li><a href="#ways">Catering</a></li>
-        <li><a href="#ways">Gift Cards</a></li>
-      </ul>
+      <ul><li><a href="#visit">Hours &amp; Location</a></li><li><a href="#ways">Take Out</a></li><li><a href="#ways">Delivery</a></li><li><a href="#ways">Catering</a></li><li><a href="#reviews">Reviews</a></li></ul>
     </div>
     <div class="foot">
-      <h4>Nick Jr's</h4>
-      <ul>
-        <li><a href="#story">Our Story</a></li>
-        <li><a href="#dishes">Signature Plates</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Gift Cards</a></li>
-        <li><a href="#">Accessibility</a></li>
-      </ul>
+      <h4>Nick's Jr.</h4>
+      <ul><li><a href="#story">Our Story</a></li><li><a href="#dishes">Signature Plates</a></li><li><a href="#gallery">Gallery</a></li><li><a href="https://www.google.com/maps/search/?api=1&query=Nick%27s%20Jr%20Burgers%20%26%20Gyros%20Everett%20WA" target="_blank" rel="noopener">Find on Google</a></li></ul>
     </div>
   </div>
-  <p class="copyright">&copy; 1998&ndash;<span id="yr">2026</span> Nick Jr's Burgers &amp; Gyros &middot; All Rights Reserved &middot; Dine In &middot; Take Out &middot; Catering</p>
+  <p class="copyright">&copy; <span id="yr">2026</span> Nick's Jr Burgers &amp; Gyros &middot; Everett, WA &middot; Dine In &middot; Takeout &middot; Catering</p>
 </footer>
 
 <script>
   /* Rotating words */
-  (function rotator() {
+  (function () {
     const words = document.querySelectorAll('#rotator .word');
     if (!words.length) return;
     let i = 0;
-    setInterval(() => {
+    setInterval(function () {
       words[i].classList.remove('active');
       i = (i + 1) % words.length;
       words[i].classList.add('active');
     }, 2400);
   })();
 
-  /* Sticky nav scrolled state */
+  /* Sticky nav */
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', function () {
     if (window.scrollY > 80) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   });
 
-  /* Mobile nav toggle */
-  document.getElementById('navToggle').addEventListener('click', () => {
+  /* Mobile nav */
+  document.getElementById('navToggle').addEventListener('click', function () {
     document.getElementById('navLinks').classList.toggle('open');
   });
-  document.querySelectorAll('#navLinks a').forEach(a =>
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
-  );
+  document.querySelectorAll('#navLinks a').forEach(function (a) {
+    a.addEventListener('click', function () { document.getElementById('navLinks').classList.remove('open'); });
+  });
 
   /* Menu tabs */
-  document.querySelectorAll('.menu-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
+  document.querySelectorAll('.menu-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
       const target = tab.dataset.tab;
-      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.menu-tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.menu-panel').forEach(function (p) { p.classList.remove('active'); });
       tab.classList.add('active');
       document.getElementById('panel-' + target).classList.add('active');
     });
   });
 
   /* Reveal on scroll */
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal, .fade-words').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal, .fade-words').forEach(function (el) { io.observe(el); });
 
-  /* Year */
+  /* Picture slider */
+  (function () {
+    const slider = document.getElementById('slider');
+    if (!slider) return;
+    const slides = slider.querySelector('.slides');
+    const count = slides.children.length;
+    const dotsWrap = document.getElementById('sDots');
+    let idx = 0, timer;
+    for (let i = 0; i < count; i++) {
+      const b = document.createElement('button');
+      if (i === 0) b.classList.add('active');
+      b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      b.addEventListener('click', function () { go(i); });
+      dotsWrap.appendChild(b);
+    }
+    const dots = dotsWrap.children;
+    function go(n) {
+      idx = (n + count) % count;
+      slides.style.transform = 'translateX(' + (-idx * 100) + '%)';
+      for (let i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === idx);
+    }
+    document.getElementById('sNext').addEventListener('click', function () { go(idx + 1); });
+    document.getElementById('sPrev').addEventListener('click', function () { go(idx - 1); });
+    function start() { timer = setInterval(function () { go(idx + 1); }, 5000); }
+    function stop() { clearInterval(timer); }
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    start();
+  })();
+
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 
